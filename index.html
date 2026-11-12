@@ -73,7 +73,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   .hero-slide-copy{width:100%;padding:18px 16px;background:rgba(5,31,37,.48);backdrop-filter:none}
 }
 
-.top-banner-wrap{padding:14px 0 18px;background:#f6fbff}.top-banner-bism{text-align:center;color:#174d79;font-weight:800;font-size:20px;padding:3px 0 12px}.top-banner-image{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;border-radius:22px;box-shadow:0 8px 26px rgba(16,44,73,.12);opacity:1;transition:opacity .22s ease-in-out}.top-banner-image.is-changing{opacity:.18}@media(max-width:560px){.top-banner-wrap{padding:9px 0 12px}.top-banner-bism{font-size:17px;padding-bottom:9px}.top-banner-image{border-radius:12px}}
+.top-banner-wrap{padding:14px 0 18px;background:#f6fbff}.top-banner-bism{text-align:center;color:#174d79;font-weight:800;font-size:20px;padding:3px 0 12px}.top-banner-image{display:block;width:100%;height:clamp(180px,34.4vw,440px);object-fit:contain;background:#f6fbff;border-radius:22px;box-shadow:0 8px 26px rgba(16,44,73,.12);opacity:1;transition:opacity .48s ease-in-out;will-change:opacity}.top-banner-image.is-changing{opacity:.18}@media(max-width:560px){.top-banner-wrap{padding:9px 0 12px}.top-banner-bism{font-size:17px;padding-bottom:9px}.top-banner-image{height:clamp(180px,46vw,300px);border-radius:12px}}
 </style>
 </head>
 <body>
@@ -153,20 +153,33 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 <a class="whatsapp" href="https://wa.me/989365742757" target="_blank" rel="noopener">واتساپ مرکز</a>
 <script>
 
-// Automatic top banner slideshow: one image per second, looping forever.
+// Smooth, preloaded top banner slideshow: one change per second, looping forever.
 (function(){
  const banner=document.querySelector('.top-banner-image');
  if(!banner)return;
- const bannerImages=['/top-banner.jpg','/banner-addiction.png','/banner-traditional.png'];
- bannerImages.slice(1).forEach(src=>{const img=new Image();img.src=src;});
+ const sources=['/top-banner.jpg','/banner-addiction.png','/banner-traditional.png'];
+ const preloaded=sources.map(src=>{
+   const img=new Image();
+   img.src=src;
+   return img;
+ });
  let current=0;
  window.setInterval(()=>{
-   current=(current+1)%bannerImages.length;
-   banner.classList.add('is-changing');
-   window.setTimeout(()=>{
-     banner.src=bannerImages[current];
-     banner.classList.remove('is-changing');
-   },220);
+   const next=(current+1)%sources.length;
+   const ready=preloaded[next];
+   const showNext=()=>{
+     banner.classList.add('is-changing');
+     window.setTimeout(()=>{
+       banner.src=sources[next];
+       current=next;
+       requestAnimationFrame(()=>banner.classList.remove('is-changing'));
+     },240);
+   };
+   if(ready.complete && ready.naturalWidth>0) showNext();
+   else {
+     ready.onload=showNext;
+     ready.onerror=()=>{current=next;};
+   }
  },1000);
 })();
 
