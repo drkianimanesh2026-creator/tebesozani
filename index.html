@@ -21,6 +21,17 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .whatsapp{position:fixed;bottom:20px;left:20px;z-index:30;background:#168b58;color:white;border-radius:50px;padding:12px 17px;box-shadow:0 8px 25px #0003;font-weight:800}
 @media(max-width:850px){.links{display:none}.hero-grid,.payment,.form-wrap{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.services{grid-template-columns:repeat(2,1fr)}.footgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.topline .container{justify-content:center}.hero{padding:42px 0}.grid,.info-grid,.services,.footgrid{grid-template-columns:1fr}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.section{padding:45px 0}.hero-art{height:190px}.nav{min-height:66px}}
+
+.hero-slider{position:relative;isolation:isolate;overflow:hidden;min-height:510px;padding:54px 0 66px;color:#fff;background:linear-gradient(90deg,rgba(7,32,42,.91) 0%,rgba(7,47,48,.76) 48%,rgba(7,47,48,.18) 100%),linear-gradient(135deg,#0d493e,#b9c98a);background-size:cover;background-position:center 42%;transition:background-position .5s}
+.hero-slider:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(5,28,27,.55),transparent 48%);pointer-events:none}
+.hero-slider .container{position:relative;z-index:1}.hero-slide-copy{width:min(610px,100%);padding:27px 30px;border:1px solid #ffffff55;border-radius:25px;background:linear-gradient(135deg,#092f2be8,#123f3ad9);box-shadow:0 22px 65px #061b1b55;backdrop-filter:blur(8px);animation:slideIn .45s ease}
+.hero-slider .bism{margin-bottom:12px;color:#f4d991}.hero-slider .eyebrow{color:#b8e8d4}.hero-slider h1{font-size:clamp(1.8rem,4vw,3rem);line-height:1.5;margin:7px 0 9px;color:#fff}.hero-slider p{margin:0;color:#e5f3ed;max-width:540px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.hero-meta span{font-size:.8rem;padding:5px 11px;border-radius:30px;background:#ffffff1b;border:1px solid #ffffff30;color:#f8f5e9}
+.hero-slider .hero-actions{margin-top:20px}.hero-slider .btn.outline{background:#ffffffed;color:#0c453c;border:0}.slider-controls{display:flex;align-items:center;gap:10px;margin-top:23px}.slider-arrow{width:39px;height:39px;border-radius:50%;border:1px solid #ffffff8c;background:#ffffff20;color:#fff;font-size:1.3rem;cursor:pointer}.slider-dots{display:flex;gap:7px;margin:0 4px}.slider-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#ffffff75;cursor:pointer}.slider-dot.active{width:25px;border-radius:20px;background:#f3c75d}
+@keyframes slideIn{from{opacity:.35;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:850px){.hero-slider{min-height:470px;padding:38px 0 52px;background-position:35% center}.hero-slide-copy{width:min(570px,100%)}}
+@media(max-width:560px){.hero-slider{min-height:480px;padding:28px 0 38px;background-position:28% center}.hero-slide-copy{padding:21px 18px;border-radius:20px}.hero-slider h1{font-size:1.75rem}.hero-meta span{font-size:.73rem}.slider-controls{margin-top:17px}}
+
 </style>
 </head>
 <body>
@@ -31,16 +42,14 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   <a class="btn" href="#register">ثبت‌نام دوره‌ها</a>
 </div></header>
 <main>
-<section class="hero"><div class="container hero-grid">
-  <div>
-    <div class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-    <div class="eyebrow">مسیر یادگیری تخصصی طب مکمل</div>
-    <h1>از دانش تا مهارت؛<br>آموزش طب سوزنی</h1>
-    <p>معرفی دوره‌های آموزشی، ثبت درخواست شرکت در کلاس‌های حضوری و آنلاین و ارتباط با مرکز تخصصی طب مکمل.</p>
-    <div class="hero-actions"><a class="btn gold" href="#courses">مشاهده دوره‌ها</a><a class="btn outline" href="#register">رزرو با ۳۰٪ پیش‌پرداخت</a></div>
-  </div>
-  <div class="hero-card"><div class="hero-art" role="img" aria-label="طرح نمادین طب سوزنی و مسیرهای انرژی"><span class="symbol">☯</span></div><div class="hero-note">آموزش مسئولانه و متناسب با صلاحیت حرفه‌ای شرکت‌کنندگان</div></div>
-</div></section>
+<section class="hero-slider" id="homeSlider" aria-label="معرفی دوره‌های آموزشی">
+<div class="container"><div class="hero-slide-copy" aria-live="polite">
+<div class="bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+<div class="eyebrow" id="slideEyebrow">آموزش تخصصی و کاربردی</div><h1 id="slideTitle">دوره پایه طب سوزنی</h1>
+<p id="slideDescription">شروع مسیر یادگیری طب سوزنی با آموزش مرحله‌به‌مرحله و امکان شرکت حضوری یا آنلاین.</p>
+<div class="hero-meta"><span id="slideMeta">۸ جلسه آموزشی</span><span id="slidePrice">شهریه: ۱۰ میلیون تومان</span></div>
+<div class="hero-actions"><a class="btn gold" id="slideRegister" href="#register" data-course="دوره پایه طب سوزنی">ثبت‌نام و رزرو</a><a class="btn outline" href="#courses">مشاهده همه دوره‌ها</a></div>
+</div><div class="slider-controls" aria-label="کنترل اسلایدها"><button class="slider-arrow" id="slidePrev" type="button" aria-label="اسلاید قبلی">‹</button><div class="slider-dots" id="slideDots"></div><button class="slider-arrow" id="slideNext" type="button" aria-label="اسلاید بعدی">›</button><span class="hero-note" id="slideCounter">۱ از ۷</span></div></div></section>
 
 <section class="section" id="courses"><div class="container">
   <div class="section-head"><div class="eyebrow">مسیرهای آموزشی</div><h2>دوره‌های تخصصی طب سوزنی و مهارت‌های مکمل</h2><p>برای مشاهده جزئیات و ثبت درخواست، دوره موردنظر را انتخاب کنید. برگزاری دوره‌ها با امکان انتخاب شیوه حضوری یا آنلاین انجام می‌شود؛ زمان‌بندی نهایی پس از هماهنگی اعلام خواهد شد.</p></div>
@@ -130,5 +139,23 @@ document.getElementById('requestForm').addEventListener('submit',e=>{
  const msg=`درخواست جدید\nنام: ${document.getElementById('rname').value}\nموبایل: ${document.getElementById('rphone').value}\nنوع درخواست: ${document.getElementById('rtype').value}\nشرح: ${document.getElementById('rdesc').value}`;
  window.open('https://wa.me/989365742757?text='+encodeURIComponent(msg),'_blank');
 });
+
+const heroSlides=[
+{course:"دوره پایه طب سوزنی",eyebrow:"شروع مسیر حرفه‌ای",title:"دوره پایه طب سوزنی",desc:"آشنایی اصولی با مبانی طب سوزنی و شروع مسیر یادگیری، با امکان شرکت در کلاس‌های حضوری و آنلاین.",meta:"۸ جلسه آموزشی",price:"شهریه: ۱۰ میلیون تومان"},
+{course:"دوره پرکاربرد ترک اعتیاد",eyebrow:"آموزش تخصصی",title:"دوره پرکاربرد ترک اعتیاد",desc:"آموزش مباحث مرتبط با طب سوزنی در حوزه وابستگی و آشنایی با رویکردهای مکمل؛ این آموزش جایگزین درمان تخصصی نیست.",meta:"۲ جلسه ۴ ساعته | ۸ ساعت",price:"شهریه: ۶ میلیون تومان"},
+{course:"دوره متوسطه طب سوزنی",eyebrow:"گام بعدی پس از دوره پایه",title:"دوره متوسطه طب سوزنی",desc:"گسترش دانش مریدین‌ها، نقاط ویژه و مباحث کاربردی برای هنرجویان دارای پیش‌نیاز دوره اولیه و عمومی.",meta:"۸ جلسه ۴ ساعته | ۳۲ ساعت",price:"شهریه: ۸ میلیون تومان"},
+{course:"دوره درای نیدل و لوکوس دولندی",eyebrow:"ویژه گروه‌های حرفه‌ای",title:"درای نیدل و سبک لوکوس دولندی",desc:"آموزش تخصصی سوزن خشک و مباحث مرتبط؛ ویژه پزشکان، فیزیوتراپیست‌ها و متخصصان آسیب‌شناسی ورزشی واجد پیش‌نیاز.",meta:"۴ جلسه ۴ ساعته | ۱۶ ساعت",price:"شهریه: ۷ میلیون تومان"},
+{course:"دوره پوست و زیبایی",eyebrow:"دوره تخصصی",title:"پوست و زیبایی",desc:"مروری بر مباحث منتخب طب سوزنی در حوزه زیبایی، جوان‌سازی چهره و پوست و موضوعات مرتبط.",meta:"۴ جلسه ۴ ساعته | ۱۶ ساعت",price:"شهریه: ۷ میلیون تومان"},
+{course:"دوره بیماری‌های زنان",eyebrow:"ویژه پزشکان زنان و ماماها",title:"دوره بیماری‌های زنان",desc:"آموزش مباحث منتخب مرتبط با سلامت زنان، با رعایت پیش‌نیازهای آموزشی و صلاحیت حرفه‌ای.",meta:"۲ جلسه ۴ ساعته | ۸ ساعت",price:"شهریه: ۶ میلیون تومان"},
+{course:"دوره بیماری‌های اندام‌های حرکتی و ستون فقرات",eyebrow:"ویژه گروه‌های حرفه‌ای",title:"اندام‌های حرکتی و ستون فقرات",desc:"آموزش مباحث منتخب مرتبط با اندام‌های حرکتی و ستون فقرات برای گروه‌های حرفه‌ای واجد صلاحیت.",meta:"۲ جلسه ۴ ساعته | ۸ ساعت",price:"شهریه: ۶ میلیون تومان"}];
+let activeHeroSlide=0,heroTimer;
+const sf={eyebrow:document.getElementById('slideEyebrow'),title:document.getElementById('slideTitle'),description:document.getElementById('slideDescription'),meta:document.getElementById('slideMeta'),price:document.getElementById('slidePrice'),register:document.getElementById('slideRegister'),counter:document.getElementById('slideCounter')};
+const dots=document.getElementById('slideDots');
+heroSlides.forEach((s,i)=>{const d=document.createElement('button');d.type='button';d.className='slider-dot'+(i===0?' active':'');d.setAttribute('aria-label','نمایش '+s.course);d.addEventListener('click',()=>{renderHeroSlide(i);restartHeroTimer()});dots.appendChild(d)});
+function renderHeroSlide(i){activeHeroSlide=(i+heroSlides.length)%heroSlides.length;const s=heroSlides[activeHeroSlide];sf.eyebrow.textContent=s.eyebrow;sf.title.textContent=s.title;sf.description.textContent=s.desc;sf.meta.textContent=s.meta;sf.price.textContent=s.price;sf.register.dataset.course=s.course;sf.counter.textContent=new Intl.NumberFormat('fa-IR').format(activeHeroSlide+1)+' از '+new Intl.NumberFormat('fa-IR').format(heroSlides.length);dots.querySelectorAll('button').forEach((d,j)=>{d.classList.toggle('active',j===activeHeroSlide);d.setAttribute('aria-current',j===activeHeroSlide?'true':'false')})}
+function restartHeroTimer(){clearInterval(heroTimer);heroTimer=setInterval(()=>renderHeroSlide(activeHeroSlide+1),6500)}
+document.getElementById('slidePrev').addEventListener('click',()=>{renderHeroSlide(activeHeroSlide-1);restartHeroTimer()});document.getElementById('slideNext').addEventListener('click',()=>{renderHeroSlide(activeHeroSlide+1);restartHeroTimer()});renderHeroSlide(0);restartHeroTimer();
+fetch('/hero-banner.b64').then(r=>r.ok?r.text():'').then(data=>{if(data.trim())document.getElementById('homeSlider').style.backgroundImage='linear-gradient(90deg,rgba(7,32,42,.91) 0%,rgba(7,47,48,.76) 48%,rgba(7,47,48,.18) 100%),linear-gradient(0deg,rgba(5,28,27,.55),transparent 48%),url("data:image/webp;base64,'+data.trim()+'")'}).catch(()=>{});
+
 </script>
 </body></html>
