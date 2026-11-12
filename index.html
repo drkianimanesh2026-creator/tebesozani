@@ -110,9 +110,9 @@ const course=document.getElementById('course'), payment=document.getElementById(
 function updateAmount(){
  const p=prices[course.value], method=payment.value;
  if(!p||!method){amountBox.textContent='پس از انتخاب دوره و روش پرداخت، مبلغ قابل پرداخت نمایش داده می‌شود.';return;}
- if(method==='deposit') amountBox.innerHTML='مبلغ پیش‌پرداخت برای رزرو (۳۰٪): <strong>'+fmt(Math.round(p*.3))+'</strong><br><span class="hint">مانده شهریه: '+fmt(p-Math.round(p*.3))+' — بدون تخفیف</span>';
- else if(method==='cash') amountBox.innerHTML='مبلغ پرداخت کامل با ۵٪ تخفیف: <strong>'+fmt(Math.round(p*.95))+'</strong><br><span class="hint">میزان تخفیف: '+fmt(Math.round(p*.05))+'</span>';
- else amountBox.innerHTML='شهریه بدون تخفیف: <strong>'+fmt(p)+'</strong><br><span class="hint">شرایط و زمان‌بندی اقساط با مرکز هماهنگ می‌شود.</span>';
+ if(method==='deposit') amountBox.innerHTML='مبلغ دقیق قابل واریز برای رزرو (۳۰٪): <strong>'+fmt(Math.round(p*.3))+'</strong><br><span class="hint">مانده شهریه پس از پیش‌پرداخت: '+fmt(p-Math.round(p*.3))+' — بدون تخفیف</span><br><b>لطفاً دقیقاً همین مبلغ را در پی‌پینگ وارد کنید.</b>';
+ else if(method==='cash') amountBox.innerHTML='مبلغ دقیق قابل واریز با ۵٪ تخفیف: <strong>'+fmt(Math.round(p*.95))+'</strong><br><span class="hint">میزان تخفیف: '+fmt(Math.round(p*.05))+'</span><br><b>لطفاً دقیقاً همین مبلغ را در پی‌پینگ وارد کنید.</b>';
+ else amountBox.innerHTML='شهریه کامل دوره بدون تخفیف: <strong>'+fmt(p)+'</strong><br><span class="hint">مبلغ هر قسط هنوز مشخص نیست؛ قبل از واریز اقساط، مبلغ و زمان‌بندی را با مرکز هماهنگ کنید.</span>';
 }
 course.addEventListener('change',updateAmount);payment.addEventListener('change',updateAmount);
 document.querySelectorAll('[data-course]').forEach(b=>b.addEventListener('click',()=>{course.value=b.dataset.course;updateAmount()}));
@@ -120,7 +120,9 @@ document.querySelectorAll('[data-request]').forEach(b=>b.addEventListener('click
 document.getElementById('regForm').addEventListener('submit',e=>{
  e.preventDefault();
  const name=document.getElementById('name').value.trim(),mobile=document.getElementById('mobile').value.trim();
- const msg=`درخواست ثبت‌نام دوره\nنام: ${name}\nموبایل: ${mobile}\nدوره: ${course.value}\nشیوه شرکت: ${document.getElementById('mode').value}\nروش پرداخت: ${payment.options[payment.selectedIndex].text}\nتخصص: ${document.getElementById('qualification').value}\nتوضیحات: ${document.getElementById('notes').value}`;
+ const p=prices[course.value], method=payment.value;
+ const payable=method==='deposit'?Math.round(p*.3):method==='cash'?Math.round(p*.95):null;
+ const msg=`درخواست ثبت‌نام دوره\nنام: ${name}\nموبایل: ${mobile}\nدوره: ${course.value}\nشیوه شرکت: ${document.getElementById('mode').value}\nروش پرداخت: ${payment.options[payment.selectedIndex].text}\nمبلغ قابل پرداخت فعلی: ${payable===null?'نیازمند هماهنگی اقساط':fmt(payable)}\nتخصص: ${document.getElementById('qualification').value}\nتوضیحات: ${document.getElementById('notes').value}`;
  window.open('https://wa.me/989365742757?text='+encodeURIComponent(msg),'_blank');
 });
 document.getElementById('requestForm').addEventListener('submit',e=>{
