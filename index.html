@@ -217,7 +217,7 @@ function renderHeroSlide(i){activeHeroSlide=(i+heroSlides.length)%heroSlides.len
 function restartHeroTimer(){clearInterval(heroTimer);heroTimer=setInterval(()=>renderHeroSlide(activeHeroSlide+1),6500)}
 document.getElementById('slidePrev').addEventListener('click',()=>{renderHeroSlide(activeHeroSlide-1);restartHeroTimer()});document.getElementById('slideNext').addEventListener('click',()=>{renderHeroSlide(activeHeroSlide+1);restartHeroTimer()});renderHeroSlide(0);restartHeroTimer();
 const heroSlider=document.getElementById('homeSlider');
-heroSlider.style.backgroundImage='linear-gradient(90deg,rgba(4,35,30,.35),rgba(4,35,30,.12)),url("hero-male.svg")';
+heroSlider.style.backgroundImage='radial-gradient(circle at 18% 28%,rgba(255,255,255,.14),transparent 26%),linear-gradient(125deg,#0b3434 0%,#176d68 48%,#a7c8b4 100%)';
 
 </script>
 </body></html>
