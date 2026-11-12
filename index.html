@@ -343,7 +343,8 @@ function updateAmount(){
  if(!p||!method){amountBox.textContent='پس از انتخاب دوره و روش پرداخت، مبلغ قابل پرداخت نمایش داده می‌شود.';return;}
  if(method==='deposit') amountBox.innerHTML='مبلغ دقیق قابل واریز برای رزرو (۳۰٪): <strong>'+fmt(Math.round(p*.3))+'</strong><br><span class="hint">مانده شهریه پس از پیش‌پرداخت: '+fmt(p-Math.round(p*.3))+' — بدون تخفیف</span><br><b>لطفاً دقیقاً همین مبلغ را در پی‌پینگ وارد کنید.</b>';
  else if(method==='cash') amountBox.innerHTML='مبلغ دقیق قابل واریز با ۵٪ تخفیف: <strong>'+fmt(Math.round(p*.95))+'</strong><br><span class="hint">میزان تخفیف: '+fmt(Math.round(p*.05))+'</span><br><b>لطفاً دقیقاً همین مبلغ را در پی‌پینگ وارد کنید.</b>';
- else if(course.value==='کارگاه آموزشی طب سنتی') amountBox.innerHTML='شهریه کل کارگاه: <strong>'+fmt(p)+'</strong><br><span class="hint">امکان پرداخت در ۳ قسط وجود دارد؛ مبلغ و زمان‌بندی هر قسط را با مرکز هماهنگ کنید.</span>';\n else amountBox.innerHTML='شهریه کامل دوره بدون تخفیف: <strong>'+fmt(p)+'</strong><br><span class="hint">مبلغ هر قسط هنوز مشخص نیست؛ قبل از واریز اقساط، مبلغ و زمان‌بندی را با مرکز هماهنگ کنید.</span>';
+ else if(course.value==='کارگاه آموزشی طب سنتی') amountBox.innerHTML='شهریه کل کارگاه: <strong>'+fmt(p)+'</strong><br><span class="hint">امکان پرداخت در ۳ قسط وجود دارد؛ مبلغ و زمان‌بندی هر قسط را با مرکز هماهنگ کنید.</span>';
+ else amountBox.innerHTML='شهریه کامل دوره بدون تخفیف: <strong>'+fmt(p)+'</strong><br><span class="hint">مبلغ هر قسط هنوز مشخص نیست؛ قبل از واریز اقساط، مبلغ و زمان‌بندی را با مرکز هماهنگ کنید.</span>';
 }
 course.addEventListener('change',updateAmount);payment.addEventListener('change',updateAmount);
 document.querySelectorAll('[data-course]').forEach(b=>b.addEventListener('click',()=>{course.value=b.dataset.course;updateAmount()}));
