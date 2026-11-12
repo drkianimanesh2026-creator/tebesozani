@@ -32,6 +32,17 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 @media(max-width:850px){.hero-slider{min-height:470px;padding:38px 0 52px;background-position:35% center}.hero-slide-copy{width:min(570px,100%)}}
 @media(max-width:560px){.hero-slider{min-height:480px;padding:28px 0 38px;background-position:28% center}.hero-slide-copy{padding:21px 18px;border-radius:20px}.hero-slider h1{font-size:1.75rem}.hero-meta span{font-size:.73rem}.slider-controls{margin-top:17px}}
 
+
+/* Course-directory layout inspired by modern learning marketplaces */
+.course-tools{background:#fff;border:1px solid var(--line);border-radius:19px;padding:17px;margin:0 0 22px;box-shadow:0 8px 24px #102c4908}
+.course-search{display:flex;align-items:center;gap:10px;background:#f5f8fb;border:1px solid #e2eaf0;border-radius:13px;padding:0 14px}
+.course-search span{font-size:1.5rem;color:var(--teal)}.course-search input{border:0!important;background:transparent!important;box-shadow:none!important;padding:13px 0!important;outline:0;width:100%}
+.course-filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.filter-chip{border:1px solid #dce6ec;background:#fff;color:#395267;padding:7px 13px;border-radius:30px;cursor:pointer;font-size:.82rem;font-weight:700}.filter-chip.active,.filter-chip:hover{background:var(--navy);border-color:var(--navy);color:#fff}.course-count{font-size:.78rem;color:var(--muted);margin-top:10px}
+.course[hidden]{display:none!important}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.why-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:21px}.why-card .ico{font-size:1.7rem}.why-card h3{color:var(--navy);font-size:1rem;margin:7px 0}.why-card p{color:var(--muted);font-size:.85rem;margin:0}
+.faq-list{max-width:850px;margin:auto;display:grid;gap:10px}.faq-list details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}.faq-list summary{font-weight:800;color:var(--navy);cursor:pointer}.faq-list p{color:var(--muted);font-size:.9rem;margin:10px 0 0}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr}.course-tools{padding:12px}.course-filters{gap:6px}.filter-chip{font-size:.76rem;padding:6px 10px}}
+
 </style>
 </head>
 <body>
@@ -52,8 +63,9 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 </div><div class="slider-controls" aria-label="کنترل اسلایدها"><button class="slider-arrow" id="slidePrev" type="button" aria-label="اسلاید قبلی">‹</button><div class="slider-dots" id="slideDots"></div><button class="slider-arrow" id="slideNext" type="button" aria-label="اسلاید بعدی">›</button><span class="hero-note" id="slideCounter">۱ از ۷</span></div></div></section>
 
 <section class="section" id="courses"><div class="container">
-  <div class="section-head"><div class="eyebrow">مسیرهای آموزشی</div><h2>دوره‌های تخصصی طب سوزنی و مهارت‌های مکمل</h2><p>برای مشاهده جزئیات و ثبت درخواست، دوره موردنظر را انتخاب کنید. برگزاری دوره‌ها با امکان انتخاب شیوه حضوری یا آنلاین انجام می‌شود؛ زمان‌بندی نهایی پس از هماهنگی اعلام خواهد شد.</p></div>
-  <div class="grid">
+  <div class="section-head"><div class="eyebrow">مسیرهای آموزشی</div><h2>دوره‌های تخصصی طب سوزنی و مهارت‌های مکمل</h2><p>دوره مناسب خود را جست‌وجو کنید، دسته‌بندی را انتخاب کنید و جزئیات شهریه و پیش‌نیازها را ببینید.</p></div>
+  <div class="course-tools"><div class="course-search"><span>⌕</span><input id="courseSearch" type="search" placeholder="جست‌وجوی نام دوره یا موضوع آموزشی..." aria-label="جست‌وجوی دوره‌ها"></div><div class="course-filters" role="group" aria-label="فیلتر دوره‌ها"><button class="filter-chip active" type="button" data-filter="all">همه دوره‌ها</button><button class="filter-chip" type="button" data-filter="general">طب سوزنی</button><button class="filter-chip" type="button" data-filter="professional">ویژه متخصصان</button><button class="filter-chip" type="button" data-filter="beauty">پوست و زیبایی</button><button class="filter-chip" type="button" data-filter="women">سلامت زنان</button></div><div id="courseCount" class="course-count">۷ دوره آموزشی</div></div>
+  <div class="grid" id="courseGrid">
     <article class="course featured"><span class="tag goldtag">دوره اصلی • پیشنهادی</span><h3>دوره پایه طب سوزنی</h3><div class="meta">۸ جلسه آموزشی | حضوری و آنلاین</div><p>دوره پایه برای شروع مسیر یادگیری طب سوزنی. جزئیات سرفصل‌ها و برنامه جلسات از مرکز دریافت می‌شود.</p><div class="price">۱۰,۰۰۰,۰۰۰ <small>تومان</small></div><div class="hint">پرداخت کامل یک‌جا با ۵٪ تخفیف: ۹,۵۰۰,۰۰۰ تومان</div><a class="btn" href="#register" data-course="دوره پایه طب سوزنی">ثبت‌نام و رزرو</a></article>
     <article class="course"><span class="tag">دوره تخصصی</span><h3>دوره پرکاربرد ترک اعتیاد</h3><div class="meta">۲ جلسه ۴ ساعته | ۸ ساعت</div><ul><li>آشنایی با انواع اعتیاد و مواد مخدر</li><li>علل روان‌شناختی اعتیاد</li><li>آموزش‌های مرتبط با ترک سیگار و اعتیاد با طب سوزنی</li><li>آشنایی با گیاهان دارویی</li></ul><div class="price">۶,۰۰۰,۰۰۰ <small>تومان</small></div><a class="btn secondary" href="#register" data-course="دوره پرکاربرد ترک اعتیاد">ثبت‌نام این دوره</a></article>
     <article class="course"><span class="tag">دوره تخصصی</span><h3>دوره متوسطه طب سوزنی</h3><div class="meta">۸ جلسه ۴ ساعته | ۳۲ ساعت</div><ul><li>مبانی پاتوفیزیولوژیک و نقش روان در حلقه کنترل</li><li>کاربرد حلقه کنترل و مکانیسم بیوفیدبک</li><li>تشخیص و درمان مطلوب‌تر</li><li>بازآموزی مریدین‌ها و نقاط ویژه</li><li>درمان ۱۰ بیماری پرمخاطب و امبدینگ</li></ul><div class="hint">پیش‌نیاز: دوره اولیه و عمومی</div><div class="price">۸,۰۰۰,۰۰۰ <small>تومان</small></div><a class="btn secondary" href="#register" data-course="دوره متوسطه طب سوزنی">ثبت‌نام این دوره</a></article>
@@ -64,6 +76,8 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   </div>
 </div></section>
 
+<section class="section" style="padding-top:5px"><div class="container"><div class="section-head"><div class="eyebrow">تجربه آموزشی هدفمند</div><h2>چرا از مرکز تخصصی طب مکمل آموزش ببینید؟</h2><p>مسیر انتخاب دوره و هماهنگی ثبت‌نام را ساده و شفاف کرده‌ایم.</p></div><div class="why-grid"><article class="why-card"><div class="ico">🧭</div><h3>انتخاب آگاهانه دوره</h3><p>مدت، شهریه و پیش‌نیازهای اعلام‌شده هر دوره را پیش از ثبت درخواست بررسی کنید.</p></article><article class="why-card"><div class="ico">💻</div><h3>امکان شرکت حضوری و آنلاین</h3><p>شیوه شرکت را در فرم ثبت‌نام انتخاب کنید تا برای هماهنگی با شما تماس گرفته شود.</p></article><article class="why-card"><div class="ico">🤝</div><h3>پشتیبانی و هماهنگی</h3><p>برای پرسش درباره دوره، پرداخت، کلاس خصوصی و خدمات مرکز از راه‌های ارتباطی استفاده کنید.</p></article></div></div></section>
+<section class="section" style="padding-top:0"><div class="container"><div class="section-head"><div class="eyebrow">پرسش‌های پرتکرار</div><h2>قبل از ثبت‌نام بدانید</h2></div><div class="faq-list"><details><summary>آیا دوره‌ها حضوری هستند یا آنلاین؟</summary><p>برای دوره‌ها امکان درخواست شرکت حضوری یا آنلاین در فرم ثبت‌نام در نظر گرفته شده است. جزئیات برگزاری و ظرفیت پس از ثبت درخواست با شما هماهنگ می‌شود.</p></details><details><summary>چطور جای خودم را رزرو کنم؟</summary><p>با انتخاب گزینه پیش‌پرداخت، ۳۰٪ شهریه برای رزرو محاسبه می‌شود. پس از پرداخت، رسید یا کد پیگیری را در واتساپ برای مرکز بفرستید تا پرداخت بررسی شود.</p></details><details><summary>آیا پرداخت کامل شامل تخفیف می‌شود؟</summary><p>بله؛ پرداخت کامل و یک‌جای شهریه شامل ۵٪ تخفیف است. پرداخت اقساطی بدون تخفیف بوده و باید شرایط آن را با مرکز هماهنگ کنید.</p></details><details><summary>آیا شرکت در دوره به‌تنهایی مجوز درمان ایجاد می‌کند؟</summary><p>خیر. دوره‌ها جایگزین تحصیلات دانشگاهی، مجوز حرفه‌ای یا صلاحیت قانونی درمان نیستند. فعالیت درمانی فقط باید توسط افراد واجد صلاحیت و در چارچوب ضوابط انجام شود.</p></details></div></div></section>
 <section class="info-strip"><div class="container info-grid"><div class="info"><b>حضوری و آنلاین</b><span>انتخاب شیوه شرکت هنگام ثبت درخواست</span></div><div class="info"><b>۳۰٪ پیش‌پرداخت</b><span>امکان رزرو جایگاه با پرداخت اولیه</span></div><div class="info"><b>۵٪ تخفیف پرداخت کامل</b><span>فقط برای تسویه یک‌جای شهریه</span></div></div></section>
 
 <section class="section"><div class="container"><div class="payment"><div><h2>رزرو دوره با پیش‌پرداخت</h2><p>برای رزرو، ۳۰٪ شهریه را پرداخت کنید. پرداخت کامل و یک‌جا شامل ۵٪ تخفیف است. پرداخت اقساطی بدون تخفیف بوده و شرایط آن با مرکز هماهنگ می‌شود.</p></div><div class="pay-rules"><div class="rule">پرداخت کامل یک‌جا: <b>۵٪ تخفیف</b></div><div class="rule">رزرو جایگاه: <b>۳۰٪ شهریه</b></div><div class="rule">پرداخت اقساطی: <b>بدون تخفیف</b></div><a class="btn gold" href="https://ppng.ir/jahanesalamat" target="_blank" rel="noopener">پرداخت شهریه از طریق پی‌پینگ</a><div class="hint" style="color:#d5e5ef">پس از انتخاب دوره، مبلغ قابل پرداخت را در فرم ثبت‌نام مشاهده کنید. در صفحه پی‌پینگ همان مبلغ را وارد کنید و پس از پرداخت، رسید یا کد پیگیری را برای مرکز در واتساپ ارسال کنید.</div></div></div></div></section>
@@ -105,6 +119,18 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 <footer><div class="container"><div class="footgrid"><div><h3>مرکز تخصصی طب مکمل</h3><p>معرفی دوره‌های آموزشی طب سوزنی، ثبت درخواست شرکت در کلاس‌های حضوری و آنلاین و هماهنگی خدمات مرکز.</p></div><div><h3>دسترسی سریع</h3><p><a href="#courses">دوره‌های آموزشی</a></p><p><a href="#services">خدمات و درخواست‌ها</a></p><p><a href="#register">ثبت‌نام</a></p></div><div><h3>تماس با مرکز</h3><p>۰۹۳۰۹۰۴۲۷۸۲</p><p>۰۹۳۷۲۸۱۴۱۴۱</p><p>۰۹۰۱۷۶۵۶۳۳۵</p><p>۰۹۳۶۵۷۴۲۷۵۷</p></div></div><div class="copyright">© کلیه حقوق این وب‌سایت برای مرکز تخصصی طب مکمل محفوظ است.</div></div></footer>
 <a class="whatsapp" href="https://wa.me/989365742757" target="_blank" rel="noopener">واتساپ مرکز</a>
 <script>
+
+// Course search and category filters
+const courseCards=[...document.querySelectorAll('#courseGrid .course')];
+const courseSearch=document.getElementById('courseSearch');
+const filterButtons=[...document.querySelectorAll('.filter-chip')];
+let activeCourseFilter='all';
+function categoryForCard(card){const t=card.innerText;if(t.includes('پوست و زیبایی'))return 'beauty';if(t.includes('بیماری‌های زنان'))return 'women';if(t.includes('درای نیدل')||t.includes('اندام‌های حرکتی')||t.includes('ستون فقرات'))return 'professional';return 'general'}
+courseCards.forEach(card=>card.dataset.category=categoryForCard(card));
+function filterCourseCards(){const q=(courseSearch.value||'').trim().toLocaleLowerCase('fa');let count=0;courseCards.forEach(card=>{const matchesText=card.innerText.toLocaleLowerCase('fa').includes(q);const matchesCategory=activeCourseFilter==='all'||card.dataset.category===activeCourseFilter;card.hidden=!(matchesText&&matchesCategory);if(!card.hidden)count++});document.getElementById('courseCount').textContent=new Intl.NumberFormat('fa-IR').format(count)+' دوره نمایش داده شد'}
+courseSearch.addEventListener('input',filterCourseCards);
+filterButtons.forEach(btn=>btn.addEventListener('click',()=>{activeCourseFilter=btn.dataset.filter;filterButtons.forEach(b=>b.classList.toggle('active',b===btn));filterCourseCards()}));
+
 const prices={
 "دوره پایه طب سوزنی":10000000,
 "دوره پرکاربرد ترک اعتیاد":6000000,
