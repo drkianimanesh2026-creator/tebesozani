@@ -322,32 +322,51 @@ heroSlider.style.backgroundImage='radial-gradient(circle at 18% 28%,rgba(255,255
  }catch(error){output.textContent='فعلاً در دسترس نیست';}
 })();
 
-document.getElementById('collaborationForm').addEventListener('submit',async e=>{
+document.getElementById('collaborationForm').addEventListener('submit', async e => {
  e.preventDefault();
  const name=document.getElementById('collabName').value.trim();
  const phone=document.getElementById('collabPhone').value.trim();
  const area=document.getElementById('collabArea').value;
  const proposal=document.getElementById('collabProposal').value.trim();
- const files=[...document.getElementById('collabFiles').files];
- const msg='درخواست همکاری با مرکز تخصصی طب مکمل\\nنام: '+name+'\\nشماره تماس: '+phone+'\\nزمینه همکاری: '+area+'\\nسوابق و پیشنهاد: '+proposal+'\\nتعداد فایل‌های انتخاب‌شده: '+files.length;
+ const fileInput=document.getElementById('collabFiles');
+ const files=Array.from(fileInput.files || []);
  const notice=document.getElementById('collabNotice');
- try{
-   if(files.length && navigator.canShare && navigator.canShare({files}) && navigator.share){
-     await navigator.share({title:'درخواست همکاری با مرکز تخصصی طب مکمل',text:msg,files});
-     notice.textContent='پنجره اشتراک‌گذاری باز شد. واتساپ یا بله را انتخاب کنید و ارسال را در همان برنامه نهایی کنید.';
-     return;
-   }
-   if(navigator.share){
-     await navigator.share({title:'درخواست همکاری با مرکز تخصصی طب مکمل',text:msg});
-     notice.textContent='متن درخواست به اشتراک گذاشته شد. فایل‌ها را در پیام‌رسان انتخابی به پیام پیوست کنید.';
-     return;
-   }
- }catch(err){
-   if(err && err.name==='AbortError')return;
+ const msg='درخواست همکاری با مرکز تخصصی طب مکمل\nنام: '+name+'\nشماره تماس: '+phone+'\nزمینه همکاری: '+area+'\nسوابق و پیشنهاد: '+proposal+(files.length?'\nفایل‌های انتخاب‌شده: '+files.map(f=>f.name).join('، '):'\nبدون فایل پیوست');
+ const whatsappUrl='https://wa.me/989365742757?text='+encodeURIComponent(msg);
+
+ if (!files.length) {
+   notice.textContent='در حال باز کردن واتساپ؛ متن درخواست را در گفت‌وگو ارسال کنید.';
+   const win=window.open(whatsappUrl,'_blank');
+   if(!win) notice.innerHTML='مرورگر بازشدن پنجره را مسدود کرد. <a href="'+whatsappUrl+'" target="_blank" rel="noopener">برای باز کردن واتساپ اینجا بزنید</a>.';
+   return;
  }
- const url='https://wa.me/989365742757?text='+encodeURIComponent(msg);
- window.open(url,'_blank','noopener');
- notice.textContent=files.length?'واتساپ باز شد؛ فایل‌های انتخاب‌شده به‌صورت خودکار ضمیمه نشده‌اند. در واتساپ از علامت پیوست، فایل‌ها را دستی انتخاب و ارسال کنید. برای بله نیز می‌توانید همین متن و فایل‌ها را در گفت‌وگوی مرکز بفرستید.':'واتساپ باز شد؛ درخواست را ارسال کنید.';
+
+ if (navigator.share && navigator.canShare) {
+   let canShareFiles=false;
+   try { canShareFiles=navigator.canShare({files:files}); } catch(err) {}
+   if (canShareFiles) {
+     try {
+       notice.textContent='فهرست اشتراک‌گذاری باز می‌شود؛ واتساپ را انتخاب کنید و در خود واتساپ دکمه ارسال را بزنید.';
+       await navigator.share({title:'درخواست همکاری با مرکز تخصصی طب مکمل',text:msg,files:files});
+       notice.textContent='اشتراک‌گذاری به برنامه انتخابی واگذار شد. برای نهایی‌شدن، ارسال را در واتساپ تأیید کنید.';
+       return;
+     } catch(err) {
+       if(err && err.name==='AbortError') {
+         notice.textContent='اشتراک‌گذاری لغو شد؛ فایل‌ها هنوز ارسال نشده‌اند. دوباره تلاش کنید یا فایل‌ها را در واتساپ دستی پیوست کنید.';
+         return;
+       }
+       notice.textContent='اشتراک‌گذاری فایل از این مرورگر انجام نشد. واتساپ را باز کنید و فایل‌ها را با علامت سنجاق/پیوست اضافه کنید.';
+     }
+   }
+ }
+
+ const win=window.open(whatsappUrl,'_blank');
+ const names=files.map(f=>f.name).join('، ');
+ const manual='فایل‌ها خودکار ضمیمه نشدند ('+names+'). پس از بازشدن واتساپ، علامت سنجاق یا پیوست را بزنید و فایل‌ها را از گوشی انتخاب کنید؛ سپس ارسال را بزنید.';
+ notice.textContent=manual;
+ if(!win) {
+   notice.innerHTML=manual+' <a href="'+whatsappUrl+'" target="_blank" rel="noopener">باز کردن واتساپ</a>';
+ }
 });
 
 </script>
