@@ -64,6 +64,14 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .course-search span{font-size:1.5rem;color:#c62828}.course-search input{border:0!important;background:transparent!important;box-shadow:none!important;padding:13px 0!important;outline:0;width:100%}
 .course-search:focus-within{border-color:#c62828;box-shadow:0 0 0 3px #c6282818}
 .course-filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.filter-chip{border:1px solid #dce6ec;background:#fff;color:#395267;padding:7px 13px;border-radius:30px;cursor:pointer;font-size:.82rem;font-weight:700}.filter-chip.active,.filter-chip:hover{background:var(--navy);border-color:var(--navy);color:#fff}.course-count{font-size:.78rem;color:var(--muted);margin-top:10px}
+.course-description{position:relative;max-height:19em;overflow:hidden;transition:max-height .35s ease}
+.course-description.is-expanded{max-height:2000px}
+.course-description:not(.is-expanded):after{content:"";position:absolute;right:0;left:0;bottom:0;height:38px;background:linear-gradient(to bottom,transparent,#fff);pointer-events:none}
+.more-toggle{display:inline-flex;align-items:center;gap:4px;margin:5px 0 9px;padding:2px 0;border:0;background:transparent;color:#1674c5;font:inherit;font-size:.86rem;font-weight:900;cursor:pointer}
+.more-toggle:hover{color:#0b4f91;text-decoration:underline}
+.traditional-columns.is-collapsed{max-height:19em;overflow:hidden;position:relative}
+.traditional-columns.is-expanded{max-height:2000px;overflow:visible}
+.traditional-columns.is-collapsed:after{content:"";position:absolute;right:0;left:0;bottom:0;height:38px;background:linear-gradient(to bottom,transparent,#245b48);pointer-events:none}
 .course[hidden]{display:none!important}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.why-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:21px}.why-card .ico{font-size:1.7rem}.why-card h3{color:var(--navy);font-size:1rem;margin:7px 0}.why-card p{color:var(--muted);font-size:.85rem;margin:0}
 .faq-list{max-width:850px;margin:auto;display:grid;gap:10px}.faq-list details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}.faq-list summary{font-weight:800;color:var(--navy);cursor:pointer}.faq-list p{color:var(--muted);font-size:.9rem;margin:10px 0 0}
@@ -319,6 +327,46 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  });
 })();
 
+// Collapse long course descriptions after approximately ten text lines.
+(function(){
+ const makeToggle=(target,expandedLabel,collapsedLabel)=>{
+  const button=document.createElement('button');
+  button.type='button';
+  button.className='more-toggle';
+  button.textContent='… بیشتر';
+  button.setAttribute('aria-expanded','false');
+  button.addEventListener('click',()=>{
+   const expanded=button.getAttribute('aria-expanded')==='true';
+   target.classList.toggle('is-expanded',!expanded);
+   target.classList.toggle('is-collapsed',expanded);
+   button.setAttribute('aria-expanded',String(!expanded));
+   button.textContent=expanded?'… بیشتر':'نمایش کمتر';
+  });
+  target.insertAdjacentElement('afterend',button);
+  return button;
+ };
+ document.querySelectorAll('#courseGrid .course').forEach(card=>{
+  const meta=card.querySelector('.meta');
+  const price=card.querySelector('.price');
+  if(!meta||!price)return;
+  const description=document.createElement('div');
+  description.className='course-description';
+  let node=meta.nextElementSibling;
+  while(node&&node!==price){
+   const next=node.nextElementSibling;
+   description.appendChild(node);
+   node=next;
+  }
+  meta.insertAdjacentElement('afterend',description);
+  if(description.scrollHeight>description.clientHeight+8)makeToggle(description);
+ });
+ const traditional=document.querySelector('#traditional-medicine .traditional-columns');
+ if(traditional&&traditional.scrollHeight>traditional.clientHeight+8){
+  traditional.classList.add('is-collapsed');
+  makeToggle(traditional);
+ }
+})();
+ 
 // Course search and category filters, including the separate traditional medicine workshop
 const courseCards=[...document.querySelectorAll('#courseGrid .course')];
 const courseSearch=document.getElementById('courseSearch');
