@@ -197,10 +197,10 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
         <div class="field"><label for="collabPhone">شماره تماس *</label><input id="collabPhone" required inputmode="tel" placeholder="09xxxxxxxxx"></div>
         <div class="field full"><label for="collabArea">زمینه همکاری *</label><select id="collabArea" required><option value="">انتخاب کنید</option><option>تدریس و همکاری آموزشی</option><option>تهیه و تولید محتوای آموزشی</option><option>ادمینی و مدیریت شبکه‌های اجتماعی</option><option>بازاریابی و فروش</option><option>سایر پیشنهادها</option></select></div>
         <div class="field full"><label for="collabProposal">سوابق، مهارت‌ها و پیشنهاد همکاری *</label><textarea id="collabProposal" required placeholder="سوابق کاری، توانمندی‌ها، نمونه فعالیت‌ها و پیشنهاد خود را شرح دهید."></textarea></div>
-        <div class="field full"><label for="collabFiles">انتخاب رزومه و مدارک (PDF، Word یا تصویر)</label><input id="collabFiles" type="file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"><span class="hint">می‌توانید چند فایل انتخاب کنید. فایل‌ها از طریق قابلیت اشتراک‌گذاری گوشی به واتساپ یا بله فرستاده می‌شوند.</span></div>
+        <div class="field full"><div class="hint">لطفاً فایل رزومه، تصاویر نمونه‌کار و مدارک مرتبط خود را پس از بازکردن پیام‌رسان، مستقیماً در گفت‌وگوی مرکز ارسال کنید. ارسال فایل از داخل این فرم انجام نمی‌شود.</div></div>
       </div>
       <div class="collab-actions"><button class="btn" type="submit">ارسال رزومه و درخواست</button><a class="btn gold" href="https://wa.me/989365742757" target="_blank" rel="noopener">باز کردن واتساپ مرکز</a></div>
-      <p class="notice" id="collabNotice">پس از زدن دکمه ارسال، در صورت پشتیبانی گوشی، فهرست برنامه‌ها باز می‌شود؛ واتساپ یا بله را انتخاب کنید. اگر اشتراک‌گذاری فایل در مرورگر پشتیبانی نشود، واتساپ باز می‌شود و باید فایل انتخاب‌شده را با علامت پیوست به‌صورت دستی اضافه کنید. شماره مرکز: ۰۹۳۶۵۷۴۲۷۵۷</p>
+      <p class="notice" id="collabNotice">رزومه، تصاویر و مدارک خود را مستقیماً در واتساپ، ایتا یا بله برای مرکز ارسال کنید. شماره تماس مرکز: ۰۹۳۶۵۷۴۲۷۵۷</p>
     </form>
   </div>
 </div></section>
@@ -322,51 +322,18 @@ heroSlider.style.backgroundImage='radial-gradient(circle at 18% 28%,rgba(255,255
  }catch(error){output.textContent='فعلاً در دسترس نیست';}
 })();
 
-document.getElementById('collaborationForm').addEventListener('submit', async e => {
+document.getElementById('collaborationForm').addEventListener('submit', e => {
  e.preventDefault();
  const name=document.getElementById('collabName').value.trim();
  const phone=document.getElementById('collabPhone').value.trim();
  const area=document.getElementById('collabArea').value;
  const proposal=document.getElementById('collabProposal').value.trim();
- const fileInput=document.getElementById('collabFiles');
- const files=Array.from(fileInput.files || []);
+ const msg='درخواست همکاری با مرکز تخصصی طب مکمل\\nنام: '+name+'\\nشماره تماس: '+phone+'\\nزمینه همکاری: '+area+'\\nسوابق و پیشنهاد: '+proposal+'\\nرزومه، تصاویر و مدارک مرتبط را جداگانه در همین گفت‌وگو ارسال می‌کنم.';
+ const url='https://wa.me/989365742757?text='+encodeURIComponent(msg);
+ const win=window.open(url,'_blank');
  const notice=document.getElementById('collabNotice');
- const msg='درخواست همکاری با مرکز تخصصی طب مکمل\nنام: '+name+'\nشماره تماس: '+phone+'\nزمینه همکاری: '+area+'\nسوابق و پیشنهاد: '+proposal+(files.length?'\nفایل‌های انتخاب‌شده: '+files.map(f=>f.name).join('، '):'\nبدون فایل پیوست');
- const whatsappUrl='https://wa.me/989365742757?text='+encodeURIComponent(msg);
-
- if (!files.length) {
-   notice.textContent='در حال باز کردن واتساپ؛ متن درخواست را در گفت‌وگو ارسال کنید.';
-   const win=window.open(whatsappUrl,'_blank');
-   if(!win) notice.innerHTML='مرورگر بازشدن پنجره را مسدود کرد. <a href="'+whatsappUrl+'" target="_blank" rel="noopener">برای باز کردن واتساپ اینجا بزنید</a>.';
-   return;
- }
-
- if (navigator.share && navigator.canShare) {
-   let canShareFiles=false;
-   try { canShareFiles=navigator.canShare({files:files}); } catch(err) {}
-   if (canShareFiles) {
-     try {
-       notice.textContent='فهرست اشتراک‌گذاری باز می‌شود؛ واتساپ را انتخاب کنید و در خود واتساپ دکمه ارسال را بزنید.';
-       await navigator.share({title:'درخواست همکاری با مرکز تخصصی طب مکمل',text:msg,files:files});
-       notice.textContent='اشتراک‌گذاری به برنامه انتخابی واگذار شد. برای نهایی‌شدن، ارسال را در واتساپ تأیید کنید.';
-       return;
-     } catch(err) {
-       if(err && err.name==='AbortError') {
-         notice.textContent='اشتراک‌گذاری لغو شد؛ فایل‌ها هنوز ارسال نشده‌اند. دوباره تلاش کنید یا فایل‌ها را در واتساپ دستی پیوست کنید.';
-         return;
-       }
-       notice.textContent='اشتراک‌گذاری فایل از این مرورگر انجام نشد. واتساپ را باز کنید و فایل‌ها را با علامت سنجاق/پیوست اضافه کنید.';
-     }
-   }
- }
-
- const win=window.open(whatsappUrl,'_blank');
- const names=files.map(f=>f.name).join('، ');
- const manual='فایل‌ها خودکار ضمیمه نشدند ('+names+'). پس از بازشدن واتساپ، علامت سنجاق یا پیوست را بزنید و فایل‌ها را از گوشی انتخاب کنید؛ سپس ارسال را بزنید.';
- notice.textContent=manual;
- if(!win) {
-   notice.innerHTML=manual+' <a href="'+whatsappUrl+'" target="_blank" rel="noopener">باز کردن واتساپ</a>';
- }
+ notice.textContent='برای ارسال رزومه، تصاویر و مدارک، آن‌ها را مستقیماً در پیام‌رسان انتخابی پیوست کنید.';
+ if(!win) notice.innerHTML+=' <a href="'+url+'" target="_blank" rel="noopener">باز کردن واتساپ</a>';
 });
 
 </script>
