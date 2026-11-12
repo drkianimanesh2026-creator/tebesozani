@@ -73,7 +73,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   .hero-slide-copy{width:100%;padding:18px 16px;background:rgba(5,31,37,.48);backdrop-filter:none}
 }
 
-.top-banner-wrap{padding:14px 0 18px;background:#f6fbff}.top-banner-bism{text-align:center;color:#174d79;font-weight:800;font-size:20px;padding:3px 0 12px}.top-banner-image{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;border-radius:22px;box-shadow:0 8px 26px rgba(16,44,73,.12)}@media(max-width:560px){.top-banner-wrap{padding:9px 0 12px}.top-banner-bism{font-size:17px;padding-bottom:9px}.top-banner-image{border-radius:12px}}
+.top-banner-wrap{padding:14px 0 18px;background:#f6fbff}.top-banner-bism{text-align:center;color:#174d79;font-weight:800;font-size:20px;padding:3px 0 12px}.top-banner-image{display:block;width:100%;height:auto;max-height:440px;object-fit:contain;border-radius:22px;box-shadow:0 8px 26px rgba(16,44,73,.12);opacity:1;transition:opacity .22s ease-in-out}.top-banner-image.is-changing{opacity:.18}@media(max-width:560px){.top-banner-wrap{padding:9px 0 12px}.top-banner-bism{font-size:17px;padding-bottom:9px}.top-banner-image{border-radius:12px}}
 </style>
 </head>
 <body>
@@ -152,6 +152,23 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 <footer><div class="container"><div class="footgrid"><div><h3>مرکز تخصصی طب مکمل</h3><p>معرفی دوره‌های آموزشی طب سوزنی، ثبت درخواست شرکت در کلاس‌های حضوری و آنلاین و هماهنگی خدمات مرکز.</p></div><div><h3>دسترسی سریع</h3><p><a href="#courses">دوره‌های آموزشی</a></p><p><a href="#services">خدمات و درخواست‌ها</a></p><p><a href="#register">ثبت‌نام</a></p></div><div><h3>تماس با مرکز</h3><p>۰۹۳۰۹۰۴۲۷۸۲</p><p>۰۹۳۷۲۸۱۴۱۴۱</p><p>۰۹۰۱۷۶۵۶۳۳۵</p><p>۰۹۳۶۵۷۴۲۷۵۷</p></div></div><div class="copyright">© کلیه حقوق این وب‌سایت برای مرکز تخصصی طب مکمل محفوظ است.</div></div></footer>
 <a class="whatsapp" href="https://wa.me/989365742757" target="_blank" rel="noopener">واتساپ مرکز</a>
 <script>
+
+// Automatic top banner slideshow: one image per second, looping forever.
+(function(){
+ const banner=document.querySelector('.top-banner-image');
+ if(!banner)return;
+ const bannerImages=['/top-banner.jpg','/banner-addiction.png','/banner-traditional.png'];
+ bannerImages.slice(1).forEach(src=>{const img=new Image();img.src=src;});
+ let current=0;
+ window.setInterval(()=>{
+   current=(current+1)%bannerImages.length;
+   banner.classList.add('is-changing');
+   window.setTimeout(()=>{
+     banner.src=bannerImages[current];
+     banner.classList.remove('is-changing');
+   },220);
+ },1000);
+})();
 
 // Course search and category filters
 const courseCards=[...document.querySelectorAll('#courseGrid .course')];
