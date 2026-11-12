@@ -153,34 +153,35 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 <a class="whatsapp" href="https://wa.me/989365742757" target="_blank" rel="noopener">واتساپ مرکز</a>
 <script>
 
-// Smooth, preloaded top banner slideshow: one change per second, looping forever.
+// Reliable top-banner slideshow: wait for all images to load before rotating.
 (function(){
  const banner=document.querySelector('.top-banner-image');
  if(!banner)return;
  const sources=['/top-banner.webp','/banner-addiction.webp','/banner-traditional.webp'];
- const preloaded=sources.map(src=>{
+ const loadImage=src=>new Promise(resolve=>{
    const img=new Image();
+   img.onload=()=>resolve({src,ok:true});
+   img.onerror=()=>resolve({src,ok:false});
    img.src=src;
-   return img;
  });
- let current=0;
- window.setInterval(()=>{
-   const next=(current+1)%sources.length;
-   const ready=preloaded[next];
-   const showNext=()=>{
-     banner.classList.add('is-changing');
-     window.setTimeout(()=>{
-       banner.src=sources[next];
-       current=next;
-       requestAnimationFrame(()=>banner.classList.remove('is-changing'));
-     },240);
-   };
-   if(ready.complete && ready.naturalWidth>0) showNext();
-   else {
-     ready.onload=showNext;
-     ready.onerror=()=>{current=next;};
-   }
- },1000);
+ Promise.all(sources.map(loadImage)).then(results=>{
+   const usable=results.filter(item=>item.ok).map(item=>item.src);
+   if(usable.length<2)return;
+   let current=Math.max(0,usable.indexOf(banner.getAttribute('src')));
+   window.setInterval(()=>{
+     const next=(current+1)%usable.length;
+     const probe=new Image();
+     probe.onload=()=>{
+       banner.classList.add('is-changing');
+       window.setTimeout(()=>{
+         banner.src=usable[next];
+         current=next;
+         requestAnimationFrame(()=>banner.classList.remove('is-changing'));
+       },240);
+     };
+     probe.src=usable[next];
+   },4000);
+ });
 })();
 
 // Course search and category filters
