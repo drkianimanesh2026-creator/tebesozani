@@ -43,6 +43,36 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .faq-list{max-width:850px;margin:auto;display:grid;gap:10px}.faq-list details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}.faq-list summary{font-weight:800;color:var(--navy);cursor:pointer}.faq-list p{color:var(--muted);font-size:.9rem;margin:10px 0 0}
 @media(max-width:700px){.why-grid{grid-template-columns:1fr}.course-tools{padding:12px}.course-filters{gap:6px}.filter-chip{font-size:.76rem;padding:6px 10px}}
 
+
+/* Make the hero behave like a real full-width promotional banner */
+.hero-slider{
+  min-height:560px;
+  padding:58px 0 64px;
+  background-color:#123d42;
+  background-size:cover!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+}
+.hero-slider:after{
+  background:linear-gradient(90deg,rgba(5,27,34,.30) 0%,rgba(5,27,34,.10) 52%,rgba(5,27,34,0) 100%);
+}
+.hero-slide-copy{
+  width:min(540px,52%);
+  background:linear-gradient(135deg,rgba(5,31,37,.60),rgba(8,48,48,.34));
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow:0 18px 48px rgba(0,0,0,.24);
+  backdrop-filter:blur(1px);
+}
+@media(max-width:850px){
+  .hero-slider{min-height:500px;background-position:center center!important}
+  .hero-slide-copy{width:min(560px,76%)}
+}
+@media(max-width:560px){
+  .hero-slider{min-height:500px;padding:26px 0 34px;background-position:58% center!important}
+  .hero-slider:after{background:linear-gradient(90deg,rgba(5,27,34,.22),rgba(5,27,34,.05))}
+  .hero-slide-copy{width:100%;padding:18px 16px;background:rgba(5,31,37,.48);backdrop-filter:none}
+}
+
 </style>
 </head>
 <body>
