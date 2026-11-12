@@ -80,13 +80,21 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .survey-video{display:block;width:100%;max-height:680px;aspect-ratio:16/9;object-fit:contain;background:#0b2036}
 @media(max-width:560px){.survey-video-wrap{border-width:4px;border-radius:15px}.survey-video{aspect-ratio:9/16;max-height:75vh}}
 .site-visitor-counter{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:24px auto 0;padding:12px 18px;max-width:310px;border:1px solid #ffffff30;border-radius:14px;background:#ffffff10;color:#e3edf4;font-size:.9rem}.site-visitor-counter strong{display:inline-block;min-width:48px;padding:2px 10px;border-radius:20px;background:#f1d59b;color:#102c49;font-size:1rem;text-align:center;font-variant-numeric:tabular-nums}
+
+.collaboration-section{background:#edf4f6}
+.collab-panel{display:grid;grid-template-columns:.75fr 1.25fr;gap:22px;align-items:start}
+.collab-intro{background:linear-gradient(145deg,#102c49,#176477);color:#fff;border-radius:22px;padding:25px}
+.collab-intro h3{margin:0 0 12px;color:#f1d59b}.collab-intro ul{padding-right:20px}.collab-intro li{margin:8px 0}.collab-intro p{color:#d8e6ef;font-size:.88rem}
+.collab-form{min-width:0}.collab-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+@media(max-width:850px){.collab-panel{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <div class="topline"><div class="container"><span>مرکز تخصصی طب مکمل</span><span>آموزش حضوری و آنلاین | مشاوره و هماهنگی خدمات</span></div></div>
 <header><div class="container nav">
   <a class="brand" href="#"><span class="logo">✣</span><span>مرکز تخصصی طب مکمل<small>آموزش، مهارت و خدمات طب سوزنی</small></span></a>
-  <nav class="links"><a href="#courses">دوره‌های آموزشی</a><a href="#services">خدمات</a><a href="#survey">نظرسنجی فراگیران</a><a href="#register">ثبت‌نام</a><a href="#contact">تماس با ما</a></nav>
+  <nav class="links"><a href="#courses">دوره‌های آموزشی</a><a href="#services">خدمات</a><a href="#survey">نظرسنجی فراگیران</a><a href="#register">ثبت‌نام</a><a href="#collaboration">دعوت به همکاری</a><a href="#contact">تماس با ما</a></nav>
   <a class="btn" href="#register">ثبت‌نام دوره‌ها</a>
 </div></header>
 <main>
@@ -178,6 +186,25 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   <div class="field full"><label for="rtype">نوع درخواست *</label><select id="rtype" required><option value="">انتخاب کنید</option><option>درخواست برگزاری کلاس خصوصی</option><option>درخواست هماهنگی خدمات طب سوزنی در کلینیک</option><option>درخواست خرید سوزن و دستگاه</option><option>درخواست برگزاری دوره‌ای خارج از فهرست سایت</option></select></div>
   <div class="field full"><label for="rdesc">شرح درخواست *</label><textarea id="rdesc" required placeholder="لطفاً جزئیات درخواست خود را بنویسید."></textarea></div>
 </div><button class="btn" type="submit">ارسال درخواست به واتساپ</button><p class="notice">ارسال درخواست از طریق واتساپ به شماره ۰۹۳۶۵۷۴۲۷۵۷ انجام می‌شود. برای ایتا، همین شماره را جست‌وجو کنید.</p></form></div></section>
+
+<section class="section collaboration-section" id="collaboration"><div class="container">
+  <div class="section-head"><div class="eyebrow">همکاری با مرکز</div><h2>دعوت به همکاری</h2><p>از علاقه‌مندان به همکاری با مرکز تخصصی طب مکمل در زمینه‌های آموزشی، محتوایی و اجرایی دعوت می‌کنیم رزومه و پیشنهاد همکاری خود را ارسال کنند.</p></div>
+  <div class="collab-panel">
+    <div class="collab-intro"><h3>زمینه‌های همکاری</h3><ul><li>تدریس و همکاری آموزشی</li><li>تهیه و تولید محتوای آموزشی</li><li>ادمینی و مدیریت شبکه‌های اجتماعی</li><li>بازاریابی و فروش</li></ul><p>لطفاً سوابق کاری، مهارت‌ها و پیشنهاد همکاری خود را بنویسید و رزومه یا مدارک مرتبط را انتخاب کنید.</p></div>
+    <form class="form collab-form" id="collaborationForm">
+      <div class="fields">
+        <div class="field"><label for="collabName">نام و نام خانوادگی *</label><input id="collabName" required placeholder="نام کامل"></div>
+        <div class="field"><label for="collabPhone">شماره تماس *</label><input id="collabPhone" required inputmode="tel" placeholder="09xxxxxxxxx"></div>
+        <div class="field full"><label for="collabArea">زمینه همکاری *</label><select id="collabArea" required><option value="">انتخاب کنید</option><option>تدریس و همکاری آموزشی</option><option>تهیه و تولید محتوای آموزشی</option><option>ادمینی و مدیریت شبکه‌های اجتماعی</option><option>بازاریابی و فروش</option><option>سایر پیشنهادها</option></select></div>
+        <div class="field full"><label for="collabProposal">سوابق، مهارت‌ها و پیشنهاد همکاری *</label><textarea id="collabProposal" required placeholder="سوابق کاری، توانمندی‌ها، نمونه فعالیت‌ها و پیشنهاد خود را شرح دهید."></textarea></div>
+        <div class="field full"><label for="collabFiles">انتخاب رزومه و مدارک (PDF، Word یا تصویر)</label><input id="collabFiles" type="file" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"><span class="hint">می‌توانید چند فایل انتخاب کنید. فایل‌ها از طریق قابلیت اشتراک‌گذاری گوشی به واتساپ یا بله فرستاده می‌شوند.</span></div>
+      </div>
+      <div class="collab-actions"><button class="btn" type="submit">ارسال رزومه و درخواست</button><a class="btn gold" href="https://wa.me/989365742757" target="_blank" rel="noopener">باز کردن واتساپ مرکز</a></div>
+      <p class="notice" id="collabNotice">پس از زدن دکمه ارسال، در صورت پشتیبانی گوشی، فهرست برنامه‌ها باز می‌شود؛ واتساپ یا بله را انتخاب کنید. اگر اشتراک‌گذاری فایل در مرورگر پشتیبانی نشود، واتساپ باز می‌شود و باید فایل انتخاب‌شده را با علامت پیوست به‌صورت دستی اضافه کنید. شماره مرکز: ۰۹۳۶۵۷۴۲۷۵۷</p>
+    </form>
+  </div>
+</div></section>
+
 </main>
 <footer><div class="container"><div class="footgrid"><div><h3>مرکز تخصصی طب مکمل</h3><p>معرفی دوره‌های آموزشی طب سوزنی، ثبت درخواست شرکت در کلاس‌های حضوری و آنلاین و هماهنگی خدمات مرکز.</p></div><div><h3>دسترسی سریع</h3><p><a href="#courses">دوره‌های آموزشی</a></p><p><a href="#services">خدمات و درخواست‌ها</a></p><p><a href="#register">ثبت‌نام</a></p></div><div><h3>تماس با مرکز</h3><p>۰۹۳۰۹۰۴۲۷۸۲</p><p>۰۹۳۷۲۸۱۴۱۴۱</p><p>۰۹۰۱۷۶۵۶۳۳۵</p><p>۰۹۳۶۵۷۴۲۷۵۷</p></div></div><div class="site-visitor-counter" aria-live="polite"><span>👁️ بازدید کل سایت</span><strong id="siteVisitCount">در حال دریافت آمار...</strong></div>
   <div class="copyright">© کلیه حقوق این وب‌سایت برای مرکز تخصصی طب مکمل محفوظ است.</div></div></footer>
@@ -294,5 +321,34 @@ heroSlider.style.backgroundImage='radial-gradient(circle at 18% 28%,rgba(255,255
   output.textContent=new Intl.NumberFormat('fa-IR').format(Number(data.value));
  }catch(error){output.textContent='فعلاً در دسترس نیست';}
 })();
+
+document.getElementById('collaborationForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ const name=document.getElementById('collabName').value.trim();
+ const phone=document.getElementById('collabPhone').value.trim();
+ const area=document.getElementById('collabArea').value;
+ const proposal=document.getElementById('collabProposal').value.trim();
+ const files=[...document.getElementById('collabFiles').files];
+ const msg='درخواست همکاری با مرکز تخصصی طب مکمل\\nنام: '+name+'\\nشماره تماس: '+phone+'\\nزمینه همکاری: '+area+'\\nسوابق و پیشنهاد: '+proposal+'\\nتعداد فایل‌های انتخاب‌شده: '+files.length;
+ const notice=document.getElementById('collabNotice');
+ try{
+   if(files.length && navigator.canShare && navigator.canShare({files}) && navigator.share){
+     await navigator.share({title:'درخواست همکاری با مرکز تخصصی طب مکمل',text:msg,files});
+     notice.textContent='پنجره اشتراک‌گذاری باز شد. واتساپ یا بله را انتخاب کنید و ارسال را در همان برنامه نهایی کنید.';
+     return;
+   }
+   if(navigator.share){
+     await navigator.share({title:'درخواست همکاری با مرکز تخصصی طب مکمل',text:msg});
+     notice.textContent='متن درخواست به اشتراک گذاشته شد. فایل‌ها را در پیام‌رسان انتخابی به پیام پیوست کنید.';
+     return;
+   }
+ }catch(err){
+   if(err && err.name==='AbortError')return;
+ }
+ const url='https://wa.me/989365742757?text='+encodeURIComponent(msg);
+ window.open(url,'_blank','noopener');
+ notice.textContent=files.length?'واتساپ باز شد؛ فایل‌های انتخاب‌شده به‌صورت خودکار ضمیمه نشده‌اند. در واتساپ از علامت پیوست، فایل‌ها را دستی انتخاب و ارسال کنید. برای بله نیز می‌توانید همین متن و فایل‌ها را در گفت‌وگوی مرکز بفرستید.':'واتساپ باز شد؛ درخواست را ارسال کنید.';
+});
+
 </script>
 </body></html>
