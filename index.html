@@ -131,7 +131,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 
 <section class="section" id="courses"><div class="container">
   <div class="section-head"><div class="eyebrow">مسیرهای آموزشی</div><h2>دوره‌های تخصصی طب سوزنی و مهارت‌های مکمل</h2><p>دوره مناسب خود را جست‌وجو کنید، دسته‌بندی را انتخاب کنید و جزئیات شهریه و پیش‌نیازها را ببینید.</p></div>
-  <div class="course-tools"><div class="course-search"><span>⌕</span><input id="courseSearch" type="search" placeholder="جست‌وجوی نام دوره یا موضوع آموزشی..." aria-label="جست‌وجوی دوره‌ها"></div><div class="course-filters" role="group" aria-label="فیلتر دوره‌ها"><button class="filter-chip active" type="button" data-filter="all">همه دوره‌ها</button><button class="filter-chip" type="button" data-filter="general">طب سوزنی</button><button class="filter-chip" type="button" data-filter="professional">ویژه متخصصان</button><button class="filter-chip" type="button" data-filter="beauty">پوست و زیبایی</button><button class="filter-chip" type="button" data-filter="women">سلامت زنان</button></div><div id="courseCount" class="course-count">۸ دوره آموزشی</div></div>
+  <div class="course-tools"><div class="course-search"><span>⌕</span><input id="courseSearch" type="search" placeholder="جست‌وجوی نام دوره یا موضوع آموزشی..." aria-label="جست‌وجوی دوره‌ها"></div><div class="course-filters" role="group" aria-label="فیلتر دوره‌ها"><button class="filter-chip active" type="button" data-filter="all">همه دوره‌ها</button><button class="filter-chip" type="button" data-filter="general">طب سوزنی</button><button class="filter-chip" type="button" data-filter="professional">ویژه متخصصان</button><button class="filter-chip" type="button" data-filter="beauty">پوست و زیبایی</button><button class="filter-chip" type="button" data-filter="women">سلامت زنان</button><button class="filter-chip" type="button" data-filter="traditional">طب سنتی</button></div><div id="courseCount" class="course-count">۹ دوره آموزشی</div></div>
   <div class="grid" id="courseGrid">
     <article class="course featured"><span class="tag goldtag">دوره اولیه و عمومی</span><h3>دوره پایه طب سوزنی</h3><div class="meta">۱۰ جلسه ۴ ساعته | ۴۰ ساعت | حضوری و آنلاین</div><ul><li>تاریخچه طب سوزنی</li><li>فلسفه طب کل‌نگر و طب سوزنی</li><li>آشنایی با سیستم انرژی بدن و انرژی‌های متعادل‌کننده بدن</li><li>آشنایی با اصول درمان در طب سوزنی</li><li>شناخت مسیرهای انرژی و مریدین‌ها</li><li>آموزش کامل مریدین‌ها و نشاط عمومی</li><li>آموزش عملی کار با دستگاه و سوزن و آشنایی آموزشی با رویکردهای مرتبط با ۵ بیماری عمومی</li></ul><div class="hint">آموزش عملی باید با رعایت اصول ایمنی، نظارت آموزشی و در چارچوب صلاحیت‌های حرفه‌ای و قانونی انجام شود.</div><div class="price">۱۰,۰۰۰,۰۰۰ <small>تومان</small></div><div class="hint">پرداخت کامل یک‌جا با ۵٪ تخفیف: ۹,۵۰۰,۰۰۰ تومان</div><a class="btn" href="#register" data-course="دوره پایه طب سوزنی">ثبت‌نام و رزرو</a></article>
     <article class="course"><span class="tag">دوره تخصصی</span><h3>دوره پرکاربرد ترک اعتیاد</h3><div class="meta">۲ جلسه ۴ ساعته | ۸ ساعت</div><ul><li>آشنایی با انواع اعتیاد و مواد مخدر</li><li>علل روان‌شناختی اعتیاد</li><li>آموزش‌های مرتبط با ترک سیگار و اعتیاد با طب سوزنی</li><li>آشنایی با گیاهان دارویی</li></ul><div class="price">۶,۰۰۰,۰۰۰ <small>تومان</small></div><a class="btn secondary" href="#register" data-course="دوره پرکاربرد ترک اعتیاد">ثبت‌نام این دوره</a></article>
@@ -314,14 +314,33 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  });
 })();
 
-// Course search and category filters
+// Course search and category filters, including the separate traditional medicine workshop
 const courseCards=[...document.querySelectorAll('#courseGrid .course')];
 const courseSearch=document.getElementById('courseSearch');
 const filterButtons=[...document.querySelectorAll('.filter-chip')];
+const traditionalCourse=document.querySelector('#traditional-medicine .traditional-panel');
 let activeCourseFilter='all';
 function categoryForCard(card){const t=card.innerText;if(t.includes('پوست و زیبایی'))return 'beauty';if(t.includes('بیماری‌های زنان'))return 'women';if(t.includes('درای نیدل')||t.includes('اندام‌های حرکتی')||t.includes('ستون فقرات'))return 'professional';return 'general'}
 courseCards.forEach(card=>card.dataset.category=categoryForCard(card));
-function filterCourseCards(){const q=(courseSearch.value||'').trim().toLocaleLowerCase('fa');let count=0;courseCards.forEach(card=>{const matchesText=card.innerText.toLocaleLowerCase('fa').includes(q);const matchesCategory=activeCourseFilter==='all'||card.dataset.category===activeCourseFilter;card.hidden=!(matchesText&&matchesCategory);if(!card.hidden)count++});document.getElementById('courseCount').textContent=new Intl.NumberFormat('fa-IR').format(count)+' دوره نمایش داده شد'}
+if(traditionalCourse)traditionalCourse.dataset.category='traditional';
+function filterCourseCards(){
+ const q=(courseSearch.value||'').trim().toLocaleLowerCase('fa');
+ let count=0;
+ courseCards.forEach(card=>{
+  const matchesText=card.innerText.toLocaleLowerCase('fa').includes(q);
+  const matchesCategory=activeCourseFilter==='all'||card.dataset.category===activeCourseFilter;
+  card.hidden=!(matchesText&&matchesCategory);
+  if(!card.hidden)count++;
+ });
+ if(traditionalCourse){
+  const matchesText=traditionalCourse.innerText.toLocaleLowerCase('fa').includes(q);
+  const matchesCategory=activeCourseFilter==='all'||activeCourseFilter==='traditional';
+  const show=matchesText&&matchesCategory;
+  traditionalCourse.closest('.traditional-section').hidden=!show;
+  if(show)count++;
+ }
+ document.getElementById('courseCount').textContent=new Intl.NumberFormat('fa-IR').format(count)+' دوره نمایش داده شد';
+}
 courseSearch.addEventListener('input',filterCourseCards);
 filterButtons.forEach(btn=>btn.addEventListener('click',()=>{activeCourseFilter=btn.dataset.filter;filterButtons.forEach(b=>b.classList.toggle('active',b===btn));filterCourseCards()}));
 
