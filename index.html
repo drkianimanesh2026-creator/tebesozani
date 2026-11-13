@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="معرفی و ثبت‌نام دوره‌های تخصصی طب سوزنی و خدمات مرکز تخصصی طب مکمل">
+<meta name="description" content="مرکز تخصصی طب مکمل؛ معرفی و ثبت‌نام دوره‌های طب سوزنی، طب سنتی، گیاهان دارویی و مهارت‌های مکمل با امکان شرکت حضوری و آنلاین.">
 <meta name="theme-color" content="#102c49">
 <meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="author" content="مرکز تخصصی طب مکمل">
 <meta name="keywords" content="طب سوزنی، آموزش طب سوزنی، دوره طب مکمل، طب سنتی، گیاهان دارویی، بادکش، حجامت، زالودرمانی، دوره آموزشی">
 <link rel="canonical" href="https://tebesozani.pages.dev/">
@@ -15,6 +16,9 @@
 <meta property="og:title" content="مرکز تخصصی طب مکمل | دوره‌های آموزشی و مهارتی">
 <meta property="og:description" content="معرفی دوره‌های آموزشی طب سوزنی، طب سنتی و مهارت‌های مکمل؛ مشاهده جزئیات و ثبت درخواست شرکت در دوره‌ها.">
 <meta property="og:url" content="https://tebesozani.pages.dev/">
+<meta property="og:image" content="https://tebesozani.pages.dev/top-banner.webp">
+<meta property="og:image:alt" content="مرکز تخصصی طب مکمل و دوره‌های آموزشی">
+<meta name="twitter:image" content="https://tebesozani.pages.dev/top-banner.webp">
 <meta name="twitter:card" content="summary_large_image">
 <title>مرکز تخصصی طب مکمل | آموزش و خدمات طب سوزنی</title>
 <style>
@@ -862,7 +866,7 @@ function normalizeCourseText(value){
 }
 function categoryForCard(card){
  if(card.closest('#traditional-medicine'))return 'traditional';
- const t=card.innerText||'';
+ const t=card.textContent||'';
  if(t.includes('پرورش زالو'))return 'livestock';
  if(t.includes('پوست و زیبایی'))return 'beauty';
  if(t.includes('بیماری‌های زنان'))return 'women';
@@ -874,7 +878,7 @@ function filterCourseCards(){
  const q=normalizeCourseText(courseSearch?.value);
  let count=0;
  courseCards.forEach(card=>{
-  const matchesText=normalizeCourseText(card.innerText).includes(q);
+  const matchesText=normalizeCourseText(card.textContent).includes(q);
   const matchesCategory=activeCourseFilter==='all'||card.dataset.category===activeCourseFilter;
   card.hidden=!(matchesText&&matchesCategory);
   if(!card.hidden)count++;
