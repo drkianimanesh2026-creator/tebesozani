@@ -421,8 +421,11 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  const closeMenu=()=>{
   menu.classList.remove('is-open');
   dropdowns.forEach(dropdown=>{
+   dropdown.open=false;
    dropdown.removeAttribute('open');
    dropdown.classList.remove('is-hovered');
+   const submenu=dropdown.querySelector(':scope > .nav-submenu');
+   if(submenu)submenu.style.display='none';
   });
   toggle.setAttribute('aria-expanded','false');
   toggle.setAttribute('aria-label','باز کردن فهرست سایت');
@@ -466,12 +469,11 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   toggle.setAttribute('aria-expanded','true');
   toggle.setAttribute('aria-label','بستن فهرست سایت');
  });
- menu.querySelectorAll('.nav-dropdown .nav-submenu a').forEach(link=>{
-  link.addEventListener('click',closeMenu);
- });
- menu.querySelectorAll('a:not(.nav-dropdown .nav-submenu a)').forEach(link=>{
-  link.addEventListener('click',closeMenu);
- });
+ // Capture every menu-link click before the browser follows its hash.
+ menu.addEventListener('click',event=>{
+  const link=event.target.closest('a');
+  if(link&&menu.contains(link))closeMenu();
+ },true);
  document.addEventListener('click',event=>{
   if(!menu.contains(event.target)&&!toggle.contains(event.target))closeMenu();
  });
