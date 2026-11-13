@@ -370,6 +370,21 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
         <a class="btn gold" href="https://ppng.ir/jahanesalamat" target="_blank" rel="noopener">پرداخت شهریه ۷ میلیون تومان</a>
       </div>
     </article>
+    <article class="herbal-course-card" id="course-cupping-workshop">
+      <img class="herbal-course-banner" src="/banner-cupping-workshop.svg" alt="بنر کارگاه فشرده بادکش و حجامت در یک روز" loading="lazy" decoding="async">
+      <div class="herbal-course-heading">
+        <span class="herbal-course-icon" aria-hidden="true">🫙</span>
+        <div><span class="traditional-kicker">کارگاه فشرده یک‌روزه</span>
+          <h2>کارگاه آموزشی بادکش و حجامت</h2>
+          <p>آشنایی فشرده با مبانی بادکش و حجامت، موارد کاربرد و منع انجام، اصول بهداشتی، کنترل عفونت و نکات ایمنی.</p>
+        </div>
+      </div>
+      <p class="herbal-course-note">آموزش عملی حجامت و اقدامات تهاجمی صرفاً برای افراد واجد صلاحیت، با نظارت آموزشی و در چارچوب قوانین و ضوابط حرفه‌ای انجام می‌شود.</p>
+      <div class="herbal-course-footer">
+        <strong>شهریه کارگاه: ۵,۰۰۰,۰۰۰ تومان</strong>
+        <a class="btn gold" href="https://ppng.ir/jahanesalamat" target="_blank" rel="noopener">پرداخت شهریه ۵ میلیون تومان</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -419,7 +434,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
     <div class="field"><label for="name">نام و نام خانوادگی *</label><input id="name" required placeholder="نام کامل"></div>
     <div class="field"><label for="mobile">شماره موبایل *</label><input id="mobile" required inputmode="tel" placeholder="09xxxxxxxxx"></div>
     <div class="field"><label for="course">دوره موردنظر *</label><select id="course" required><option value="">انتخاب دوره</option><option>دوره پایه طب سوزنی</option><option>دوره پرکاربرد ترک اعتیاد</option><option>دوره متوسطه طب سوزنی</option><option>دوره نبض‌شناسی</option><option>دوره درای نیدل و لوکوس دولندی</option><option>دوره پوست و زیبایی</option><option>دوره بیماری‌های زنان</option><option>دوره بیماری‌های اندام‌های حرکتی و ستون فقرات</option><option>کارگاه آموزشی طب سنتی</option><option>دوره آموزشی عطاری و کاربرد گیاهان دارویی</option>
-        <option>کارگاه آموزشی پرورش گیاهان دارویی</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
+        <option>کارگاه آموزشی پرورش گیاهان دارویی</option><option>کارگاه آموزشی بادکش و حجامت</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
     <div class="field"><label for="mode">شیوه شرکت *</label><select id="mode" required><option value="">انتخاب کنید</option><option>حضوری</option><option>آنلاین</option></select></div>
     <div class="field"><label for="payment">روش پرداخت *</label><select id="payment" required><option value="">انتخاب کنید</option><option value="deposit">پیش‌پرداخت ۳۰٪ برای رزرو</option><option value="cash">پرداخت کامل یک‌جا با ۵٪ تخفیف</option><option value="installment">درخواست پرداخت اقساطی (بدون تخفیف)</option></select></div>
     <div class="field"><label for="qualification">رشته / تخصص (در صورت نیاز)</label><input id="qualification" placeholder="مثلاً پزشک، ماما، فیزیوتراپیست"></div>
@@ -646,7 +661,8 @@ const prices={
 "دوره بیماری‌های اندام‌های حرکتی و ستون فقرات":6000000,
 "کارگاه آموزشی طب سنتی":7500000,
 "دوره آموزشی عطاری و کاربرد گیاهان دارویی":7000000,
-"کارگاه آموزشی پرورش گیاهان دارویی":7000000
+"کارگاه آموزشی پرورش گیاهان دارویی":7000000,
+"کارگاه آموزشی بادکش و حجامت":5000000
 };
 const fmt=n=>new Intl.NumberFormat('fa-IR').format(n)+' تومان';
 const course=document.getElementById('course'), payment=document.getElementById('payment'), amountBox=document.getElementById('amountBox');
