@@ -923,6 +923,9 @@ function normalizeCourseText(value){
 function categoryForCard(card){
  if(card.closest('#traditional-medicine'))return 'traditional';
  const t=card.textContent||'';
+ if(/هوش مصنوعی|طراحی سایت|مدیریت اینستاگرام|پایتون/.test(t))return 'general-skills';
+ if(/حمایت آموزشی|بازی‌های هدفمند/.test(t))return 'children';
+ if(/فرزندپروری/.test(t))return 'psychology';
  if(/تکنسین داروخانه|فوریت‌های پزشکی|دستیار دندانپزشک|تکنسین آزمایشگاه/.test(t))return 'health';
  if(/روان‌شناسی رفتاری|روان‌شناسی کودک|روان‌شناس پیش از ازدواج|مشاور تحصیلی/.test(t))return 'psychology';
  if(/مربی مهد|زبان انگلیسی کودک|زبان انگلیسی نوجوان|نقاشی خلاق کودک|چرتکه کودک/.test(t))return 'children';
