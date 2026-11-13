@@ -400,7 +400,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  const toggle=document.getElementById('menuToggle');
  const menu=document.getElementById('siteMenu');
  if(!toggle||!menu)return;
- const closeMenu=()=>{menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','باز کردن فهرست سایت')};
+ const closeMenu=()=>{menu.classList.remove('is-open');menu.querySelectorAll('.nav-dropdown[open]').forEach(dropdown=>dropdown.removeAttribute('open'));toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','باز کردن فهرست سایت')};
  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'بستن فهرست سایت':'باز کردن فهرست سایت')});
  menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
