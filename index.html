@@ -17,6 +17,9 @@ header{position:sticky;top:0;z-index:20;background:#ffffffed;backdrop-filter:blu
 
 .traditional-section{padding:68px 0;background:linear-gradient(135deg,#edf5ed 0%,#f8f4e8 52%,#e7f0e8 100%);border-top:1px solid #dce9dc;border-bottom:1px solid #dce9dc}
 .traditional-panel{position:relative;overflow:hidden;background:linear-gradient(135deg,#173f36,#245b48 58%,#80683d);border:1px solid #d2dfc9;border-radius:28px;padding:clamp(22px,4vw,42px);color:#fff;box-shadow:0 18px 45px #173f361c}
+.herbal-course-card{margin-top:24px;padding:clamp(20px,3.5vw,34px);border:2px solid #c9dfbd;border-right:8px solid #39834c;border-radius:24px;background:linear-gradient(135deg,#fff 0%,#f0f8ed 100%);box-shadow:0 14px 34px #245b4815}
+.herbal-course-heading{display:flex;align-items:flex-start;gap:16px}.herbal-course-icon{flex:0 0 58px;width:58px;height:58px;display:grid;place-items:center;border-radius:18px;background:#e1f0dc;font-size:2rem}.herbal-course-card h2{margin:8px 0;color:#245b36;font-size:clamp(1.3rem,3vw,1.9rem)}.herbal-course-card p{color:#536653}.herbal-course-content ul{padding-right:24px;line-height:2.1;color:#36533a}.herbal-course-note{padding:12px 15px;background:#fff;border:1px solid #dcebd7;border-radius:13px;font-size:.86rem}.herbal-course-footer{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px;padding-top:16px;border-top:1px solid #d8e7d2;color:#45614a;font-size:.9rem}
+@media(max-width:600px){.herbal-course-heading{gap:10px}.herbal-course-icon{flex-basis:46px;width:46px;height:46px}.herbal-course-footer .btn{width:100%}}
 .traditional-panel:after{content:"🌿";position:absolute;left:24px;top:6px;font-size:8rem;opacity:.10;pointer-events:none}
 .traditional-top{position:relative;z-index:1;display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
 .traditional-kicker{display:inline-block;background:#f0d99e;color:#294638;padding:5px 13px;border-radius:99px;font-size:.8rem;font-weight:900}
@@ -321,6 +324,28 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
       </div>
       <p class="traditional-safety">توجه: آموزش عملی روش‌های دارای مداخله پوستی یا خون‌گیری، صرفاً برای افراد واجد صلاحیت، با نظارت آموزشی، رعایت کنترل عفونت و در محدوده قوانین و مجوزهای حرفه‌ای مربوط انجام می‌شود. شرکت در این کارگاه به‌تنهایی مجوز ارائه خدمات درمانی ایجاد نمی‌کند.</p>
     </div>
+    <article class="herbal-course-card" id="course-herbal">
+      <div class="herbal-course-heading">
+        <span class="herbal-course-icon" aria-hidden="true">🌿</span>
+        <div><span class="traditional-kicker">دوره تخصصی طب سنتی</span>
+          <h2>۱۰. دوره آموزشی عطاری و کاربرد گیاهان دارویی</h2>
+          <p>آشنایی با دنیای شگفت‌انگیز گیاهان دارویی و فراگیری اصول عطاری به‌صورت تئوری و عملی.</p>
+        </div>
+      </div>
+      <div class="herbal-course-content">
+        <ul>
+          <li>شناخت انواع گیاهان دارویی و خواص آن‌ها</li>
+          <li>آشنایی با کاربردهای سنتی و شیوه مصرف ایمن و صحیح</li>
+          <li>آموزش اصول ترکیب، آماده‌سازی و نگهداری گیاهان دارویی</li>
+          <li>آشنایی با اصول راه‌اندازی و فعالیت در حرفه عطاری</li>
+        </ul>
+        <p class="herbal-course-note">🎓 فرصتی برای علاقه‌مندان به طب سنتی و ورود آگاهانه به کسب‌وکار گیاهان دارویی. آموزش‌ها جایگزین تشخیص یا درمان پزشکی نیستند و مصرف گیاهان باید با توجه به منع مصرف، تداخلات و نظر متخصص انجام شود.</p>
+      </div>
+      <div class="herbal-course-footer">
+        <span>📞 جهت اطلاع از زمان‌بندی، شهریه و ثبت‌نام با مرکز تماس بگیرید.</span>
+        <a class="btn gold" href="#register" data-course="دوره آموزشی عطاری و کاربرد گیاهان دارویی">ثبت‌نام و کسب اطلاعات بیشتر</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -369,7 +394,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   <form class="form" id="regForm"><h3>اطلاعات متقاضی</h3><div class="fields">
     <div class="field"><label for="name">نام و نام خانوادگی *</label><input id="name" required placeholder="نام کامل"></div>
     <div class="field"><label for="mobile">شماره موبایل *</label><input id="mobile" required inputmode="tel" placeholder="09xxxxxxxxx"></div>
-    <div class="field"><label for="course">دوره موردنظر *</label><select id="course" required><option value="">انتخاب دوره</option><option>دوره پایه طب سوزنی</option><option>دوره پرکاربرد ترک اعتیاد</option><option>دوره متوسطه طب سوزنی</option><option>دوره نبض‌شناسی</option><option>دوره درای نیدل و لوکوس دولندی</option><option>دوره پوست و زیبایی</option><option>دوره بیماری‌های زنان</option><option>دوره بیماری‌های اندام‌های حرکتی و ستون فقرات</option><option>کارگاه آموزشی طب سنتی</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
+    <div class="field"><label for="course">دوره موردنظر *</label><select id="course" required><option value="">انتخاب دوره</option><option>دوره پایه طب سوزنی</option><option>دوره پرکاربرد ترک اعتیاد</option><option>دوره متوسطه طب سوزنی</option><option>دوره نبض‌شناسی</option><option>دوره درای نیدل و لوکوس دولندی</option><option>دوره پوست و زیبایی</option><option>دوره بیماری‌های زنان</option><option>دوره بیماری‌های اندام‌های حرکتی و ستون فقرات</option><option>کارگاه آموزشی طب سنتی</option><option>دوره آموزشی عطاری و کاربرد گیاهان دارویی</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
     <div class="field"><label for="mode">شیوه شرکت *</label><select id="mode" required><option value="">انتخاب کنید</option><option>حضوری</option><option>آنلاین</option></select></div>
     <div class="field"><label for="payment">روش پرداخت *</label><select id="payment" required><option value="">انتخاب کنید</option><option value="deposit">پیش‌پرداخت ۳۰٪ برای رزرو</option><option value="cash">پرداخت کامل یک‌جا با ۵٪ تخفیف</option><option value="installment">درخواست پرداخت اقساطی (بدون تخفیف)</option></select></div>
     <div class="field"><label for="qualification">رشته / تخصص (در صورت نیاز)</label><input id="qualification" placeholder="مثلاً پزشک، ماما، فیزیوتراپیست"></div>
@@ -559,7 +584,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 const courseCards=[...document.querySelectorAll('#courseGrid .course')];
 const courseSearch=document.getElementById('courseSearch');
 const filterButtons=[...document.querySelectorAll('.filter-chip')];
-const traditionalCourse=document.querySelector('#traditional-medicine .traditional-panel');
+const traditionalCourse=document.querySelector('#traditional-medicine .container');
 let activeCourseFilter='all';
 function categoryForCard(card){const t=card.innerText;if(t.includes('پرورش زالو'))return 'livestock';if(t.includes('پوست و زیبایی'))return 'beauty';if(t.includes('بیماری‌های زنان'))return 'women';if(t.includes('درای نیدل')||t.includes('اندام‌های حرکتی')||t.includes('ستون فقرات'))return 'professional';return 'general'}
 courseCards.forEach(card=>card.dataset.category=categoryForCard(card));
