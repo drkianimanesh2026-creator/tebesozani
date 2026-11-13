@@ -667,7 +667,17 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
         <a class="btn gold" href="https://ppng.ir/jahanesalamat" target="_blank" rel="noopener">پرداخت شهریه ۱۸ میلیون تومان</a>
       </div>
     </article>
-    </article>
+  </div>
+</section>
+
+<section class="section" id="additional-courses" style="padding-top:5px">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">ادامه فهرست آموزشی</div>
+      <h2>دوره‌ها و کارگاه‌های تکمیلی؛ کلاس‌های ۲۲ به بعد</h2>
+      <p>برای مشاهده همه دوره‌ها، از جست‌وجو و دسته‌بندی بالای فهرست استفاده کنید.</p>
+    </div>
+    <div class="grid" id="laterCourseGrid"></div>
   </div>
 </section>
 
@@ -903,9 +913,20 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  }
 })();
  
+// Move classes numbered 22+ after the traditional-medicine classes 9-21.
+(function(){
+ const source=document.getElementById('courseGrid');
+ const target=document.getElementById('laterCourseGrid');
+ const section=document.getElementById('additional-courses');
+ if(!source||!target||!section)return;
+ const later=[...source.querySelectorAll('.course[id^="course-new-"]')];
+ later.forEach(card=>target.appendChild(card));
+ if(!later.length)section.hidden=true;
+})();
+
 // Course search and category filters. Search every individual course card,
 // including the traditional-medicine cards, and normalize Persian/Arabic text.
-const courseCards=[...document.querySelectorAll('#courseGrid .course, #traditional-medicine .herbal-course-card')];
+const courseCards=[...document.querySelectorAll('#courseGrid .course, #traditional-medicine .herbal-course-card, #laterCourseGrid .course')];
 const courseSearch=document.getElementById('courseSearch');
 const filterButtons=[...document.querySelectorAll('.filter-chip')];
 const traditionalSection=document.querySelector('#traditional-medicine');
