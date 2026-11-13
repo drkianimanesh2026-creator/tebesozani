@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="مرکز تخصصی طب مکمل و دوره‌های آموزشی">
 <meta name="twitter:image" content="https://tebesozani.pages.dev/top-banner.webp">
 <meta name="twitter:card" content="summary_large_image">
-<title>مرکز تخصصی طب مکمل | آموزش و خدمات طب سوزنی</title>
+<title>دوره‌های طب سوزنی و طب سنتی | مرکز تخصصی طب مکمل</title>
 <style>
 /* Fast system-font stack: avoid a render-blocking third-party font request. */
 :root{--navy:#102c49;--blue:#174d79;--teal:#168b88;--gold:#c79b4b;--ink:#172b3d;--muted:#66788a;--paper:#f5f8fb;--white:#fff;--line:#e3eaf0;--red:#c94343}
@@ -625,14 +625,14 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
     </div>
     <div class="survey-video-wrap">
       <div class="eyebrow" style="padding:12px 12px 0;color:#b9e6df">ویدئوی اول</div>
-      <video class="survey-video" controls playsinline preload="metadata" poster="/survey-poster.jpg">
+      <video class="survey-video" controls playsinline preload="none" poster="/survey-poster.jpg">
         <source src="/survey-video.mp4" type="video/mp4">
         مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
       </video>
     </div>
     <div class="survey-video-wrap" style="margin-top:24px">
       <div class="eyebrow" style="padding:12px 12px 0;color:#b9e6df">ویدئوی دوم</div>
-      <video class="survey-video" controls playsinline preload="metadata" poster="/survey-poster-2.jpg">
+      <video class="survey-video" controls playsinline preload="none" poster="/survey-poster-2.jpg">
         <source src="/survey-video-2.mp4" type="video/mp4">
         مرورگر شما از پخش ویدئو پشتیبانی نمی‌کند.
       </video>
@@ -787,7 +787,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
    img.onerror=()=>resolve({src,ok:false});
    img.src=src;
  });
- Promise.all(sources.map(loadImage)).then(results=>{
+ window.addEventListener('load',()=>window.setTimeout(()=>{Promise.all(sources.map(loadImage)).then(results=>{
    const usable=results.filter(item=>item.ok).map(item=>item.src);
    if(usable.length<2)return;
    let current=Math.max(0,usable.indexOf(banner.getAttribute('src')));
@@ -804,7 +804,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
      };
      probe.src=usable[next];
    },4000);
- });
+ });},2500),{once:true});
 })();
 
 // Collapse long course descriptions after approximately ten text lines.
