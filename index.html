@@ -425,7 +425,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
    dropdown.removeAttribute('open');
    dropdown.classList.remove('is-hovered');
    const submenu=dropdown.querySelector(':scope > .nav-submenu');
-   if(submenu)submenu.style.display='none';
+   if(submenu)submenu.style.removeProperty('display');
   });
   toggle.setAttribute('aria-expanded','false');
   toggle.setAttribute('aria-label','باز کردن فهرست سایت');
