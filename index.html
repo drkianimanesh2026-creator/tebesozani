@@ -347,6 +347,27 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
         <a class="btn gold" href="#register" data-course="دوره آموزشی عطاری و کاربرد گیاهان دارویی">ثبت‌نام و کسب اطلاعات بیشتر</a>
       </div>
     </article>
+    <article class="herbal-course-card" id="course-herbal-cultivation">
+      <img class="herbal-course-banner" src="/herbal-cultivation-banner.png" alt="بنر کارگاه آموزشی پرورش گیاهان دارویی" loading="lazy" decoding="async">
+      <div class="herbal-course-heading">
+        <span class="herbal-course-icon" aria-hidden="true">🪴</span>
+        <div><span class="traditional-kicker">کارگاه عملی گیاهان دارویی</span>
+          <h2>کارگاه آموزشی پرورش گیاهان دارویی</h2>
+          <p>آموزش کاربردی اصول کاشت، داشت و برداشت گیاهان دارویی؛ از انتخاب بذر و آماده‌سازی بستر تا تکثیر، نگهداری و برداشت محصول.</p>
+        </div>
+      </div>
+      <div class="herbal-course-content">
+        <ul>
+          <li>آشنایی با شرایط محیطی و خاک مناسب برای پرورش گیاهان دارویی</li>
+          <li>آموزش روش‌های کاشت، تکثیر، آبیاری و نگهداری</li>
+          <li>شناخت زمان و روش صحیح برداشت و خشک‌کردن محصول</li>
+        </ul>
+      </div>
+      <div class="herbal-course-footer">
+        <strong>شهریه کارگاه: ۷,۰۰۰,۰۰۰ تومان</strong>
+        <a class="btn gold" href="#register" data-course="کارگاه آموزشی پرورش گیاهان دارویی">ثبت‌نام و کسب اطلاعات بیشتر</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -395,7 +416,8 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   <form class="form" id="regForm"><h3>اطلاعات متقاضی</h3><div class="fields">
     <div class="field"><label for="name">نام و نام خانوادگی *</label><input id="name" required placeholder="نام کامل"></div>
     <div class="field"><label for="mobile">شماره موبایل *</label><input id="mobile" required inputmode="tel" placeholder="09xxxxxxxxx"></div>
-    <div class="field"><label for="course">دوره موردنظر *</label><select id="course" required><option value="">انتخاب دوره</option><option>دوره پایه طب سوزنی</option><option>دوره پرکاربرد ترک اعتیاد</option><option>دوره متوسطه طب سوزنی</option><option>دوره نبض‌شناسی</option><option>دوره درای نیدل و لوکوس دولندی</option><option>دوره پوست و زیبایی</option><option>دوره بیماری‌های زنان</option><option>دوره بیماری‌های اندام‌های حرکتی و ستون فقرات</option><option>کارگاه آموزشی طب سنتی</option><option>دوره آموزشی عطاری و کاربرد گیاهان دارویی</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
+    <div class="field"><label for="course">دوره موردنظر *</label><select id="course" required><option value="">انتخاب دوره</option><option>دوره پایه طب سوزنی</option><option>دوره پرکاربرد ترک اعتیاد</option><option>دوره متوسطه طب سوزنی</option><option>دوره نبض‌شناسی</option><option>دوره درای نیدل و لوکوس دولندی</option><option>دوره پوست و زیبایی</option><option>دوره بیماری‌های زنان</option><option>دوره بیماری‌های اندام‌های حرکتی و ستون فقرات</option><option>کارگاه آموزشی طب سنتی</option><option>دوره آموزشی عطاری و کاربرد گیاهان دارویی</option>
+        <option>کارگاه آموزشی پرورش گیاهان دارویی</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
     <div class="field"><label for="mode">شیوه شرکت *</label><select id="mode" required><option value="">انتخاب کنید</option><option>حضوری</option><option>آنلاین</option></select></div>
     <div class="field"><label for="payment">روش پرداخت *</label><select id="payment" required><option value="">انتخاب کنید</option><option value="deposit">پیش‌پرداخت ۳۰٪ برای رزرو</option><option value="cash">پرداخت کامل یک‌جا با ۵٪ تخفیف</option><option value="installment">درخواست پرداخت اقساطی (بدون تخفیف)</option></select></div>
     <div class="field"><label for="qualification">رشته / تخصص (در صورت نیاز)</label><input id="qualification" placeholder="مثلاً پزشک، ماما، فیزیوتراپیست"></div>
@@ -620,7 +642,8 @@ const prices={
 "دوره پوست و زیبایی":7000000,
 "دوره بیماری‌های زنان":6000000,
 "دوره بیماری‌های اندام‌های حرکتی و ستون فقرات":6000000,
-"کارگاه آموزشی طب سنتی":7500000
+"کارگاه آموزشی طب سنتی":7500000,
+"کارگاه آموزشی پرورش گیاهان دارویی":7000000
 };
 const fmt=n=>new Intl.NumberFormat('fa-IR').format(n)+' تومان';
 const course=document.getElementById('course'), payment=document.getElementById('payment'), amountBox=document.getElementById('amountBox');
