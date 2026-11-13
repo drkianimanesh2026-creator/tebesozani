@@ -143,7 +143,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .nav-dropdown>summary::-webkit-details-marker{display:none}
 .nav-dropdown>summary:after{content:"⌄";margin-right:6px;color:var(--teal);font-weight:900}
 .nav-submenu{display:none;position:absolute;top:100%;right:0;min-width:270px;max-height:70vh;overflow-y:auto;padding:9px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 16px 35px #102c4926}
-.nav-dropdown[open] .nav-submenu,.nav-dropdown:hover .nav-submenu,.nav-dropdown:focus-within .nav-submenu{display:grid;gap:2px}
+.nav-dropdown[open]:not(.is-closed) .nav-submenu,.nav-dropdown:not(.is-closed):hover .nav-submenu,.nav-dropdown:not(.is-closed):focus-within .nav-submenu{display:grid;gap:2px}
 .nav-submenu-heading{padding:9px 11px;margin-bottom:4px;border-radius:10px;background:#edf7f5;color:#08736e;font-weight:900}
 .nav-submenu a{display:block;padding:8px 11px;border-radius:9px;font-size:.84rem;white-space:normal}
 .nav-submenu a:hover{background:#f0f6f8;color:var(--teal)}
@@ -151,7 +151,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  .nav-dropdown{width:100%}
  .nav-dropdown>summary{padding:10px 13px;border-radius:10px;border-bottom:1px solid #edf1f4;font-weight:800}
  .nav-submenu{position:static;min-width:0;max-height:none;overflow:visible;margin:3px 7px 8px;padding:7px;border:0;border-right:2px solid #168b88;border-radius:0;box-shadow:none;background:#f8fbfc}
- .nav-dropdown[open] .nav-submenu{display:grid}
+ .nav-dropdown[open]:not(.is-closed) .nav-submenu{display:grid}
  .nav-submenu a{padding:8px 12px}
 }
 
@@ -178,8 +178,8 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   .nav{overflow:visible}
   .links{overflow:visible}
   .nav-dropdown{z-index:40}
-  .nav-dropdown:hover > .nav-submenu,
-  .nav-dropdown:focus-within > .nav-submenu{display:grid;gap:2px;z-index:1000}
+  .nav-dropdown:not(.is-closed):hover > .nav-submenu,
+  .nav-dropdown:not(.is-closed):focus-within > .nav-submenu{display:grid;gap:2px;z-index:1000}
   .nav-dropdown > summary{cursor:pointer}
 }
 [id^="course-acu-"]{scroll-margin-top:100px}
@@ -401,8 +401,11 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  const menu=document.getElementById('siteMenu');
  if(!toggle||!menu)return;
  const closeMenu=()=>{menu.classList.remove('is-open');menu.querySelectorAll('.nav-dropdown[open]').forEach(dropdown=>dropdown.removeAttribute('open'));toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','باز کردن فهرست سایت')};
+ const dropdown=menu.querySelector('.nav-dropdown');
+ if(dropdown)dropdown.addEventListener('pointerleave',()=>dropdown.classList.remove('is-closed'));
  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'بستن فهرست سایت':'باز کردن فهرست سایت')});
- menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+ menu.querySelectorAll('.nav-dropdown .nav-submenu a').forEach(link=>link.addEventListener('click',()=>{const parent=link.closest('.nav-dropdown');if(parent){parent.classList.add('is-closed');parent.removeAttribute('open')}closeMenu()}));
+ menu.querySelectorAll('a:not(.nav-dropdown .nav-submenu a)').forEach(link=>link.addEventListener('click',closeMenu));
  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
  window.addEventListener('resize',()=>{if(window.innerWidth>850)closeMenu()});
 })();
