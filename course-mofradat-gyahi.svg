@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#285b43"/><stop offset="1" stop-color="#a9b77c"/></linearGradient><radialGradient id="glow"><stop stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>
+<rect width="1200" height="520" rx="34" fill="url(#bg)"/><circle cx="1010" cy="110" r="260" fill="url(#glow)"/><circle cx="160" cy="470" r="210" fill="#fff" opacity=".07"/>
+<g fill="none" stroke="#fff" stroke-opacity=".24" stroke-width="3"><path d="M880 460Q1020 260 1130 40"/><path d="M960 360q-100-100-185-60q30 90 185 60Z" fill="#fff" fill-opacity=".12"/><path d="M1010 250q-10-120 95-160q40 95-95 160Z" fill="#fff" fill-opacity=".12"/><path d="M910 430q-125-55-160 20q85 65 160-20Z" fill="#fff" fill-opacity=".12"/></g>
+<rect x="70" y="65" width="105" height="105" rx="28" fill="#fff" fill-opacity=".16" stroke="#fff" stroke-opacity=".38"/><text x="122" y="137" text-anchor="middle" font-size="58" fill="#fff">🌿</text>
+<text x="1090" y="115" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="26" font-weight="700" fill="#fff" direction="rtl">مرکز تخصصی طب مکمل</text>
+<text x="1090" y="260" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="48" font-weight="800" fill="#fff" direction="rtl">دوره شناخت مفردات و داروهای گیاهی</text>
+<text x="1090" y="330" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="28" fill="#fff" direction="rtl">آموزش تئوری و کاربردی</text>
+<rect x="70" y="400" width="270" height="62" rx="18" fill="#fff" fill-opacity=".92"/><text x="205" y="441" text-anchor="middle" font-family="Vazirmatn,Tahoma,sans-serif" font-size="25" font-weight="800" fill="#285b43" direction="rtl">شهریه ۷ میلیون تومان</text>
+<text x="1090" y="445" text-anchor="end" font-family="Vazirmatn,Tahoma,sans-serif" font-size="24" fill="#fff" direction="rtl">کلاس شماره ۱۹</text>
+</svg>
