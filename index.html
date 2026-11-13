@@ -386,6 +386,23 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
         <a class="btn gold" href="https://ppng.ir/jahanesalamat" target="_blank" rel="noopener">پرداخت شهریه ۵ میلیون تومان</a>
       </div>
     </article>
+    <article class="herbal-course-card" id="course-leech-therapy-workshop">
+      <img class="herbal-course-banner" src="/banner-leech-therapy-workshop.svg" alt="بنر کارگاه آموزشی زالودرمانی یک‌روزه، کلاس شماره ۱۲" loading="lazy" decoding="async">
+      <div class="herbal-course-heading">
+        <span class="traditional-number" aria-label="شماره کلاس ۱۲">۱۲</span>
+        <span class="herbal-course-icon" aria-hidden="true">🪱</span>
+        <div>
+          <span class="traditional-kicker">کارگاه عملی یک‌روزه</span>
+          <h2>۱۲. کارگاه آموزشی زالودرمانی</h2>
+          <p>آشنایی آموزشی با اصول زالودرمانی، کاربردها، مراقبت‌ها، بهداشت و موارد منع انجام، همراه با آموزش عملی.</p>
+        </div>
+      </div>
+      <p class="herbal-course-note">بخش عملی و اقدامات درمانی صرفاً برای افراد واجد صلاحیت، با رعایت کنترل عفونت و در چارچوب قوانین و ضوابط حرفه‌ای انجام می‌شود.</p>
+      <div class="herbal-course-footer">
+        <strong>شهریه کارگاه: ۵,۰۰۰,۰۰۰ تومان</strong>
+        <a class="btn gold" href="https://ppng.ir/jahanesalamat" target="_blank" rel="noopener">پرداخت شهریه ۵ میلیون تومان</a>
+      </div>
+    </article>
   </div>
 </section>
 
@@ -435,7 +452,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
     <div class="field"><label for="name">نام و نام خانوادگی *</label><input id="name" required placeholder="نام کامل"></div>
     <div class="field"><label for="mobile">شماره موبایل *</label><input id="mobile" required inputmode="tel" placeholder="09xxxxxxxxx"></div>
     <div class="field"><label for="course">دوره موردنظر *</label><select id="course" required><option value="">انتخاب دوره</option><option>دوره پایه طب سوزنی</option><option>دوره پرکاربرد ترک اعتیاد</option><option>دوره متوسطه طب سوزنی</option><option>دوره نبض‌شناسی</option><option>دوره درای نیدل و لوکوس دولندی</option><option>دوره پوست و زیبایی</option><option>دوره بیماری‌های زنان</option><option>دوره بیماری‌های اندام‌های حرکتی و ستون فقرات</option><option>کارگاه آموزشی طب سنتی</option><option>دوره آموزشی عطاری و کاربرد گیاهان دارویی</option>
-        <option>کارگاه آموزشی پرورش گیاهان دارویی</option><option>کارگاه آموزشی بادکش و حجامت</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
+        <option>کارگاه آموزشی پرورش گیاهان دارویی</option><option>کارگاه آموزشی بادکش و حجامت</option><option>کارگاه آموزشی زالودرمانی</option><option>کارگاه آموزشی پرورش زالو</option></select></div>
     <div class="field"><label for="mode">شیوه شرکت *</label><select id="mode" required><option value="">انتخاب کنید</option><option>حضوری</option><option>آنلاین</option></select></div>
     <div class="field"><label for="payment">روش پرداخت *</label><select id="payment" required><option value="">انتخاب کنید</option><option value="deposit">پیش‌پرداخت ۳۰٪ برای رزرو</option><option value="cash">پرداخت کامل یک‌جا با ۵٪ تخفیف</option><option value="installment">درخواست پرداخت اقساطی (بدون تخفیف)</option></select></div>
     <div class="field"><label for="qualification">رشته / تخصص (در صورت نیاز)</label><input id="qualification" placeholder="مثلاً پزشک، ماما، فیزیوتراپیست"></div>
@@ -663,7 +680,8 @@ const prices={
 "کارگاه آموزشی طب سنتی":7500000,
 "دوره آموزشی عطاری و کاربرد گیاهان دارویی":7000000,
 "کارگاه آموزشی پرورش گیاهان دارویی":7000000,
-"کارگاه آموزشی بادکش و حجامت":5000000
+"کارگاه آموزشی بادکش و حجامت":5000000,
+"کارگاه آموزشی زالودرمانی":5000000
 };
 const fmt=n=>new Intl.NumberFormat('fa-IR').format(n)+' تومان';
 const course=document.getElementById('course'), payment=document.getElementById('payment'), amountBox=document.getElementById('amountBox');
