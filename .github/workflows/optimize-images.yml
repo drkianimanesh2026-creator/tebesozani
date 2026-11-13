@@ -1,0 +1,49 @@
+name: Optimize course images
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'file_*.png'
+      - '.github/workflows/optimize-images.yml'
+permissions:
+  contents: write
+jobs:
+  webp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Convert large PNG images to WebP
+        run: |
+          npm install --no-save sharp
+          node <<'NODE'
+          const fs = require('fs');
+          const sharp = require('sharp');
+          (async () => {
+            const html = fs.readFileSync('index.html', 'utf8');
+            const files = [...new Set([...html.matchAll(/(?:src|data-src)=["']\/(file_[^"']+\.png)["']/g)].map(m => m[1]))];
+            for (const file of files) {
+              const out = file.replace(/\.png$/i, '.webp');
+              await sharp(file).rotate().webp({ quality: 80, effort: 5 }).toFile(out);
+              const before = fs.statSync(file).size;
+              const after = fs.statSync(out).size;
+              console.log(file + ': ' + before + ' -> ' + after + ' bytes');
+              const escaped = file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const re = new RegExp(escaped, 'g');
+              const updated = fs.readFileSync('index.html', 'utf8').replace(re, out);
+              fs.writeFileSync('index.html', updated);
+            }
+          })().catch(err => { console.error(err); process.exit(1); });
+          NODE
+      - name: Commit optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html *.webp
+          if ! git diff --cached --quiet; then
+            git commit -m "Optimize course images as WebP"
+            git push
+          fi
