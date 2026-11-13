@@ -5,9 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="معرفی و ثبت‌نام دوره‌های تخصصی طب سوزنی و خدمات مرکز تخصصی طب مکمل">
 <meta name="theme-color" content="#102c49">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="مرکز تخصصی طب مکمل">
+<meta name="keywords" content="طب سوزنی، آموزش طب سوزنی، دوره طب مکمل، طب سنتی، گیاهان دارویی، بادکش، حجامت، زالودرمانی، دوره آموزشی">
+<link rel="canonical" href="https://tebesozani.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:site_name" content="مرکز تخصصی طب مکمل">
+<meta property="og:title" content="مرکز تخصصی طب مکمل | دوره‌های آموزشی و مهارتی">
+<meta property="og:description" content="معرفی دوره‌های آموزشی طب سوزنی، طب سنتی و مهارت‌های مکمل؛ مشاهده جزئیات و ثبت درخواست شرکت در دوره‌ها.">
+<meta property="og:url" content="https://tebesozani.pages.dev/">
+<meta name="twitter:card" content="summary_large_image">
 <title>مرکز تخصصی طب مکمل | آموزش و خدمات طب سوزنی</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+/* Fast system-font stack: avoid a render-blocking third-party font request. */
 :root{--navy:#102c49;--blue:#174d79;--teal:#168b88;--gold:#c79b4b;--ink:#172b3d;--muted:#66788a;--paper:#f5f8fb;--white:#fff;--line:#e3eaf0;--red:#c94343}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Vazirmatn,Tahoma,sans-serif;background:var(--paper);color:var(--ink);line-height:1.9}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.container{width:min(1140px,92%);margin:auto}
 .topline{background:#0b2036;color:#dce9f3;font-size:.82rem;padding:8px 0}.topline .container{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -75,7 +86,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .traditional-columns.is-collapsed{max-height:19em;overflow:hidden;position:relative}
 .traditional-columns.is-expanded{max-height:2000px;overflow:visible}
 .traditional-columns.is-collapsed:after{content:"";position:absolute;right:0;left:0;bottom:0;height:38px;background:linear-gradient(to bottom,transparent,#245b48);pointer-events:none}
-.course[hidden]{display:none!important}
+.course[hidden],.herbal-course-card[hidden],.traditional-section[hidden]{display:none!important}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.why-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:21px}.why-card .ico{font-size:1.7rem}.why-card h3{color:var(--navy);font-size:1rem;margin:7px 0}.why-card p{color:var(--muted);font-size:.85rem;margin:0}
 .faq-list{max-width:850px;margin:auto;display:grid;gap:10px}.faq-list details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px}.faq-list summary{font-weight:800;color:var(--navy);cursor:pointer}.faq-list p{color:var(--muted);font-size:.9rem;margin:10px 0 0}
 @media(max-width:700px){.why-grid{grid-template-columns:1fr}.course-tools{padding:12px}.course-filters{gap:6px}.filter-chip{font-size:.76rem;padding:6px 10px}}
@@ -167,10 +178,10 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
 .menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
 @media(max-width:850px){
- .menu-toggle{display:flex;order:3}
+ .menu-toggle{display:flex!important;order:3;position:relative;z-index:60;flex:0 0 44px;touch-action:manipulation}
  .nav-register{margin-right:auto}
- .links{display:none;position:absolute;top:calc(100% + 8px);right:0;left:0;z-index:50;max-height:min(72vh,560px);overflow-y:auto;flex-direction:column;align-items:stretch;gap:0;padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 35px #102c4926}
- .links.is-open{display:flex}
+ .links{display:none;visibility:visible;position:absolute;top:calc(100% + 8px);right:0;left:0;z-index:55;max-height:min(72vh,560px);overflow-y:auto;flex-direction:column;align-items:stretch;gap:0;padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 35px #102c4926}
+ .links.is-open{display:flex!important;visibility:visible;opacity:1}
  .links a{padding:10px 13px;border-radius:10px;border-bottom:1px solid #edf1f4}
  .links a:last-child{border-bottom:0}
  .links a:hover{background:#eef7f6}
@@ -188,6 +199,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 [id^="course-acu-"]{scroll-margin-top:100px}
 
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"مرکز تخصصی طب مکمل","url":"https://tebesozani.pages.dev/","description":"معرفی دوره‌های آموزشی طب سوزنی، طب سنتی و مهارت‌های مکمل و ثبت درخواست شرکت در دوره‌ها.","telephone":["+989309042782","+989372814141","+989017656335","+989365742757"],"areaServed":"IR","availableLanguage":["fa"]}</script>
 </head>
 <body>
 <div class="topline"><div class="container"><span>مرکز تخصصی طب مکمل</span><span>آموزش حضوری و آنلاین | مشاوره و هماهنگی خدمات</span></div></div>
@@ -683,7 +695,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 </div></section>
 
 </main>
-<footer><div class="container"><div class="footgrid"><div><h3>مرکز تخصصی طب مکمل</h3><p>معرفی دوره‌های آموزشی طب سوزنی، ثبت درخواست شرکت در کلاس‌های حضوری و آنلاین و هماهنگی خدمات مرکز.</p></div><div><h3>دسترسی سریع</h3><p><a href="#courses">دوره‌های آموزشی</a></p><p><a href="#services">خدمات و درخواست‌ها</a></p><p><a href="#register">ثبت‌نام</a></p></div><div><h3>تماس با مرکز</h3><p>۰۹۳۰۹۰۴۲۷۸۲</p><p>۰۹۳۷۲۸۱۴۱۴۱</p><p>۰۹۰۱۷۶۵۶۳۳۵</p><p>۰۹۳۶۵۷۴۲۷۵۷</p></div></div><div class="site-visitor-counter" aria-live="polite"><span>👁️ بازدید کل سایت</span><strong id="siteVisitCount">در حال دریافت آمار...</strong></div>
+<footer><div class="container"><div class="footgrid"><div><h3>مرکز تخصصی طب مکمل</h3><p>معرفی دوره‌های آموزشی طب سوزنی، ثبت درخواست شرکت در کلاس‌های حضوری و آنلاین و هماهنگی خدمات مرکز.</p></div><div><h3>دسترسی سریع</h3><p><a href="#courses">دوره‌های آموزشی</a></p><p><a href="#services">خدمات و درخواست‌ها</a></p><p><a href="#register">ثبت‌نام</a></p></div><div><h3>تماس با مرکز</h3><p>۰۹۳۰۹۰۴۲۷۸۲</p><p>۰۹۳۷۲۸۱۴۱۴۱</p><p>۰۹۰۱۷۶۵۶۳۳۵</p><p>۰۹۳۶۵۷۴۲۷۵۷</p></div></div><div class="site-visitor-counter" aria-live="polite"><span>👁️ بازدید کل سایت</span><strong id="siteVisitCount">آمار بازدید</strong></div>
   <div class="copyright">© کلیه حقوق این وب‌سایت برای مرکز تخصصی طب مکمل محفوظ است.</div></div></footer>
 <a class="whatsapp" href="https://wa.me/989365742757" target="_blank" rel="noopener">واتساپ مرکز</a>
 <script>
@@ -906,7 +918,17 @@ const prices={
 "دوره اسانس‌گیری و عرق‌گیری گیاهان دارویی":7000000,
 "دوره ماساژ سنتی و دَلک":7000000,
 "دوره شناخت مفردات و داروهای گیاهی":7000000,
-"دوره سبک زندگی سالم در طب ایرانی":7000000
+"دوره سبک زندگی سالم در طب ایرانی":7000000,
+"کارگاه آموزشی پرورش زالو":0,
+"دوره حرکات اصلاحی و ارزیابی پوسچر":7000000,
+"دوره دستیار فیزیوتراپی":10000000,
+"کارگاه ساخت صابون گیاهی و طبیعی":7000000,
+"کارگاه آشنایی با نوروفیدبک":7000000,
+"دوره سوجوک‌درمانی مقدماتی":15000000,
+"دوره تشخیص زبان در طب چینی":7000000,
+"کارگاه ساخت کرم‌های گیاهی و طبیعی":7000000,
+"کارگاه ساخت پمادهای گیاهی":7000000,
+"کارگاه ساخت شامپوهای گیاهی":7000000
 };
 const fmt=n=>new Intl.NumberFormat('fa-IR').format(n)+' تومان';
 const course=document.getElementById('course'), payment=document.getElementById('payment'), amountBox=document.getElementById('amountBox');
@@ -955,18 +977,7 @@ const heroSlider=document.getElementById('homeSlider');
 heroSlider.style.backgroundImage='radial-gradient(circle at 18% 28%,rgba(255,255,255,.14),transparent 26%),linear-gradient(125deg,#0b3434 0%,#176d68 48%,#a7c8b4 100%)';
 
 
-// Shared public site-wide visitor counter
-(async function(){
- const output=document.getElementById('siteVisitCount');
- if(!output)return;
- try{
-  const response=await fetch('https://countapi.mileshilliard.com/api/v1/hit/marketing4u_ir_total_site_views_20261112',{cache:'no-store'});
-  if(!response.ok)throw new Error('Counter service unavailable');
-  const data=await response.json();
-  if(!data||data.value===undefined)throw new Error('Invalid counter response');
-  output.textContent=new Intl.NumberFormat('fa-IR').format(Number(data.value));
- }catch(error){output.textContent='فعلاً در دسترس نیست';}
-})();
+// Visitor analytics are intentionally not fetched from a third-party service on page load.
 
 document.getElementById('collaborationForm').addEventListener('submit', e => {
  e.preventDefault();
