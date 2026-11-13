@@ -193,9 +193,9 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   <nav class="links" id="siteMenu" aria-label="منوی اصلی">
     <a href="#homeSlider">صفحه اصلی</a>
     <details class="nav-dropdown">
-      <summary>دوره‌های آموزشی</summary>
+      <summary>دوره‌های آموزشی طب سوزنی</summary>
       <div class="nav-submenu">
-        <div class="nav-submenu-heading">طب سوزنی و فشاری</div>
+        <div class="nav-submenu-heading">دوره‌های تخصصی طب سوزنی</div>
         <a href="#course-acu-basic">۱. طب سوزنی پایه</a>
         <a href="#course-acu-addiction">۲. ترک اعتیاد</a>
         <a href="#course-acu-intermediate">۳. طب سوزنی متوسطه</a>
@@ -206,7 +206,21 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
         <a href="#course-acu-spine">۸. اندام‌های حرکتی و ستون فقرات</a>
       </div>
     </details>
-    <a href="#traditional-medicine">کارگاه طب سنتی</a><a href="#leech-farming">پرورش زالو</a><a href="#leech-sales">فروش زالو</a><a href="#services">خدمات مرکز</a><a href="#survey">نظرسنجی فراگیران</a><a href="#register">ثبت‌نام</a><a href="#collaboration">دعوت به همکاری</a><a href="#contact">تماس با ما</a>
+    <details class="nav-dropdown">
+      <summary>دوره‌های آموزشی طب سنتی</summary>
+      <div class="nav-submenu">
+        <a href="#traditional-medicine">کارگاه آموزشی طب سنتی</a>
+      </div>
+    </details>
+    <a href="#leech-farming">پرورش زالو</a>
+    <details class="nav-dropdown">
+      <summary>خدمات</summary>
+      <div class="nav-submenu">
+        <a href="#services">خدمات مرکز</a>
+        <a href="#leech-sales">فروش زالو</a>
+      </div>
+    </details>
+    <a href="#survey">نظرسنجی فراگیران</a><a href="#register">ثبت‌نام</a><a href="#collaboration">دعوت به همکاری</a><a href="#contact">تماس با ما</a>
   </nav>
   <a class="btn nav-register" href="#register">ثبت‌نام دوره‌ها</a>
 </div></header>
@@ -400,14 +414,13 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  const menu=document.getElementById('siteMenu');
  if(!toggle||!menu)return;
  const closeMenu=()=>{menu.classList.remove('is-open');menu.querySelectorAll('.nav-dropdown[open]').forEach(dropdown=>dropdown.removeAttribute('open'));toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','باز کردن فهرست سایت')};
- const dropdown=menu.querySelector('.nav-dropdown');
- if(dropdown){
+ menu.querySelectorAll('.nav-dropdown').forEach(dropdown=>{
   dropdown.addEventListener('pointerleave',()=>dropdown.classList.remove('is-closed'));
   const summary=dropdown.querySelector(':scope > summary');
   if(summary&&window.matchMedia('(min-width:851px) and (hover:hover) and (pointer:fine)').matches){
    summary.addEventListener('click',event=>{event.preventDefault();event.stopPropagation()});
   }
- }
+ });
  toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'بستن فهرست سایت':'باز کردن فهرست سایت')});
  menu.querySelectorAll('.nav-dropdown .nav-submenu a').forEach(link=>link.addEventListener('click',()=>{const parent=link.closest('.nav-dropdown');if(parent){parent.classList.add('is-closed');parent.removeAttribute('open')}closeMenu()}));
  menu.querySelectorAll('a:not(.nav-dropdown .nav-submenu a)').forEach(link=>link.addEventListener('click',closeMenu));
