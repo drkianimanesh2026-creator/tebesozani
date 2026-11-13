@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tebesozani.pages.dev/sitemap.xml
+Sitemap: https://marketing4u.ir/sitemap.xml
