@@ -135,14 +135,35 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 .leech-sales-photo img{display:block;width:100%;max-height:310px;object-fit:cover;border-radius:18px;border:4px solid #fff;box-shadow:0 8px 22px rgba(0,0,0,.13)}
 .leech-sales-photo figcaption{text-align:center;color:#647469;font-size:12px;margin-top:8px}
 @media(max-width:720px){.leech-sales-panel{grid-template-columns:1fr;gap:18px;padding:18px;border-radius:18px}.leech-sales-photo{grid-row:1}.leech-sales-photo img{max-height:240px}.leech-sales-button{width:100%;text-align:center}}
+
+/* Responsive navigation menu */
+.nav{position:relative}
+.menu-toggle{display:none;width:44px;height:44px;padding:9px;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:pointer;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.menu-toggle span{display:block;width:21px;height:2px;border-radius:3px;background:var(--navy);transition:transform .2s,opacity .2s}
+.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:850px){
+ .menu-toggle{display:flex;order:3}
+ .nav-register{margin-right:auto}
+ .links{display:none;position:absolute;top:calc(100% + 8px);right:0;left:0;z-index:50;max-height:min(72vh,560px);overflow-y:auto;flex-direction:column;align-items:stretch;gap:0;padding:8px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 35px #102c4926}
+ .links.is-open{display:flex}
+ .links a{padding:10px 13px;border-radius:10px;border-bottom:1px solid #edf1f4}
+ .links a:last-child{border-bottom:0}
+ .links a:hover{background:#eef7f6}
+}
+@media(max-width:560px){.nav{gap:9px}.brand{gap:8px;font-size:.87rem}.brand small{font-size:.65rem}.logo{width:40px;height:40px}.nav-register{padding:9px 11px;font-size:.78rem}}
 </style>
 </head>
 <body>
 <div class="topline"><div class="container"><span>مرکز تخصصی طب مکمل</span><span>آموزش حضوری و آنلاین | مشاوره و هماهنگی خدمات</span></div></div>
 <header><div class="container nav">
-  <a class="brand" href="#"><span class="logo">✣</span><span>مرکز تخصصی طب مکمل<small>آموزش، مهارت و خدمات طب سوزنی</small></span></a>
-  <nav class="links"><a href="#courses">دوره‌های آموزشی</a><a href="#traditional-medicine">کارگاه طب سنتی</a><a href="#services">خدمات</a><a href="#survey">نظرسنجی فراگیران</a><a href="#register">ثبت‌نام</a><a href="#collaboration">دعوت به همکاری</a><a href="#contact">تماس با ما</a></nav>
-  <a class="btn" href="#register">ثبت‌نام دوره‌ها</a>
+  <a class="brand" href="#homeSlider"><span class="logo">✣</span><span>مرکز تخصصی طب مکمل<small>آموزش، مهارت و خدمات طب سوزنی</small></span></a>
+  <button class="menu-toggle" id="menuToggle" type="button" aria-label="باز کردن فهرست سایت" aria-expanded="false" aria-controls="siteMenu"><span></span><span></span><span></span></button>
+  <nav class="links" id="siteMenu" aria-label="منوی اصلی">
+    <a href="#homeSlider">صفحه اصلی</a><a href="#courses">دوره‌های آموزشی</a><a href="#traditional-medicine">کارگاه طب سنتی</a><a href="#leech-farming">پرورش زالو</a><a href="#leech-sales">فروش زالو</a><a href="#services">خدمات مرکز</a><a href="#survey">نظرسنجی فراگیران</a><a href="#register">ثبت‌نام</a><a href="#collaboration">دعوت به همکاری</a><a href="#contact">تماس با ما</a>
+  </nav>
+  <a class="btn nav-register" href="#register">ثبت‌نام دوره‌ها</a>
 </div></header>
 <main>
 <div class="top-banner-wrap"><div class="container"><div class="top-banner-bism">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div><img class="top-banner-image" src="/top-banner.webp" alt="بنر آموزش تخصصی طب سوزنی، دوره‌های حضوری و آنلاین و مهارت‌های طب مکمل" width="480" height="165" fetchpriority="high"></div></div>
@@ -167,9 +188,9 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
     <article class="course"><span class="tag">دوره تخصصی</span><h3>۶. دوره پوست و زیبایی</h3><div class="meta">۴ جلسه ۴ ساعته | ۱۶ ساعت</div><ul><li>موضوعات مرتبط با افتادگی و عدم تقارن سینه‌ها</li><li>بررسی کاربردهای طب سوزنی در تناسب اندام</li><li>زیبایی و جوان‌سازی چهره و پوست</li><li>بررسی تئوری و عملی ۱۰ بیماری پوستی</li></ul><div class="price">۷,۰۰۰,۰۰۰ <small>تومان</small></div><a class="btn secondary" href="#register" data-course="دوره پوست و زیبایی">ثبت‌نام این دوره</a></article>
     <article class="course"><span class="tag">ویژه پزشکان و ماماها</span><h3>۷. دوره بیماری‌های زنان</h3><div class="meta">۲ جلسه ۴ ساعته | ۸ ساعت</div><ul><li>بررسی موضوعات منتخب بیماری‌های زنان</li><li>از جمله یائسگی زودهنگام و تنبلی تخمدان</li></ul><div class="hint">پیش‌نیاز: دوره اولیه و عمومی و دوره متوسطه. ویژه پزشکان زنان و ماماها.</div><div class="price">۶,۰۰۰,۰۰۰ <small>تومان</small></div><a class="btn secondary" href="#register" data-course="دوره بیماری‌های زنان">ثبت‌نام این دوره</a></article>
     <article class="course"><span class="tag">ویژه گروه‌های حرفه‌ای</span><h3>۸. دوره بیماری‌های اندام‌های حرکتی و ستون فقرات</h3><div class="meta">۲ جلسه ۴ ساعته | ۸ ساعت</div><p>آموزش تخصصی موضوعات مرتبط با اندام‌های حرکتی و ستون فقرات.</p><div class="hint">ویژه پزشکان، فیزیوتراپیست‌ها و متخصصان آسیب‌شناسی ورزشی.</div><div class="price">۶,۰۰۰,۰۰۰ <small>تومان</small></div><a class="btn secondary" href="#register" data-course="دوره بیماری‌های اندام‌های حرکتی و ستون فقرات">ثبت‌نام این دوره</a></article>
-    <article class="course"><span class="tag">کارگاه مهارتی و کسب‌وکار</span><h3>۱۰. کارگاه آموزشی پرورش زالو</h3><div class="meta">حضوری در تهران | امکان شرکت آنلاین یا آفلاین</div><p>آموزش اصول علمی و کاربردی پرورش زالو؛ از شناخت زیست‌شناسی و شرایط نگهداری تا آشنایی با بازار فروش و فرصت‌های کسب‌وکار.</p><ul><li>آشنایی با زیست‌شناسی زالو و انواع آن</li><li>شناخت شرایط محیطی و تجهیزات موردنیاز</li><li>اصول پرورش، تکثیر و نگهداری زالو</li><li>تغذیه و کنترل شرایط محیط پرورش</li><li>بهداشت، کنترل کیفیت و پیشگیری از آلودگی</li><li>آشنایی با برداشت، نگهداری و بسته‌بندی</li><li>شناخت بازار فروش و فرصت‌های کسب‌وکار</li></ul><div class="hint">ویژگی‌ها: آموزش کاربردی، پشتیبانی آموزشی، بازدید از واحد تولیدی و امکان دریافت محتوای آموزشی برای شرکت آنلاین یا آفلاین. جزئیات زمان‌بندی و شهریه با مرکز هماهنگ می‌شود.</div><div class="hint">برای اطلاع از شرایط خرید و موجودی زالو، تعداد موردنیاز، سایز زالو و نشانی محل دریافت را ارسال کنید.</div><a class="btn secondary" href="https://wa.me/989365742757?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%AE%D8%B1%DB%8C%D8%AF%20%D8%B2%D8%A7%D9%84%D9%88%0A%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF%3A%0A%D8%B3%D8%A7%DB%8C%D8%B2%3A%0A%D8%B4%D9%87%D8%B1%20%D9%88%20%D8%A2%D8%AF%D8%B1%D8%B3%3A" target="_blank" rel="noopener">استعلام خرید و ارسال زالو</a><a class="btn" href="#register" data-course="کارگاه آموزشی پرورش زالو">درخواست شرکت در کارگاه</a></article>
+    <article class="course" id="leech-farming"><span class="tag">کارگاه مهارتی و کسب‌وکار</span><h3>۱۰. کارگاه آموزشی پرورش زالو</h3><div class="meta">حضوری در تهران | امکان شرکت آنلاین یا آفلاین</div><p>آموزش اصول علمی و کاربردی پرورش زالو؛ از شناخت زیست‌شناسی و شرایط نگهداری تا آشنایی با بازار فروش و فرصت‌های کسب‌وکار.</p><ul><li>آشنایی با زیست‌شناسی زالو و انواع آن</li><li>شناخت شرایط محیطی و تجهیزات موردنیاز</li><li>اصول پرورش، تکثیر و نگهداری زالو</li><li>تغذیه و کنترل شرایط محیط پرورش</li><li>بهداشت، کنترل کیفیت و پیشگیری از آلودگی</li><li>آشنایی با برداشت، نگهداری و بسته‌بندی</li><li>شناخت بازار فروش و فرصت‌های کسب‌وکار</li></ul><div class="hint">ویژگی‌ها: آموزش کاربردی، پشتیبانی آموزشی، بازدید از واحد تولیدی و امکان دریافت محتوای آموزشی برای شرکت آنلاین یا آفلاین. جزئیات زمان‌بندی و شهریه با مرکز هماهنگ می‌شود.</div><div class="hint">برای اطلاع از شرایط خرید و موجودی زالو، تعداد موردنیاز، سایز زالو و نشانی محل دریافت را ارسال کنید.</div><a class="btn secondary" href="https://wa.me/989365742757?text=%D8%AF%D8%B1%D8%AE%D9%88%D8%A7%D8%B3%D8%AA%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%D8%A7%D8%AA%20%D8%AE%D8%B1%DB%8C%D8%AF%20%D8%B2%D8%A7%D9%84%D9%88%0A%D8%AA%D8%B9%D8%AF%D8%A7%D8%AF%3A%0A%D8%B3%D8%A7%DB%8C%D8%B2%3A%0A%D8%B4%D9%87%D8%B1%20%D9%88%20%D8%A2%D8%AF%D8%B1%D8%B3%3A" target="_blank" rel="noopener">استعلام خرید و ارسال زالو</a><a class="btn" href="#register" data-course="کارگاه آموزشی پرورش زالو">درخواست شرکت در کارگاه</a></article>
   </div>
-  <section class="leech-sales-panel" aria-labelledby="leechSalesTitle">
+  <section class="leech-sales-panel" id="leech-sales" aria-labelledby="leechSalesTitle">
     <div class="leech-sales-copy">
       <span class="leech-sales-kicker">📦 فروش و ارسال به سراسر کشور</span>
       <h2 id="leechSalesTitle">فروش زالوهای طبی</h2>
@@ -327,6 +348,18 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   <div class="copyright">© کلیه حقوق این وب‌سایت برای مرکز تخصصی طب مکمل محفوظ است.</div></div></footer>
 <a class="whatsapp" href="https://wa.me/989365742757" target="_blank" rel="noopener">واتساپ مرکز</a>
 <script>
+
+// Accessible responsive navigation menu
+(function(){
+ const toggle=document.getElementById('menuToggle');
+ const menu=document.getElementById('siteMenu');
+ if(!toggle||!menu)return;
+ const closeMenu=()=>{menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','باز کردن فهرست سایت')};
+ toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'بستن فهرست سایت':'باز کردن فهرست سایت')});
+ menu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+ document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
+ window.addEventListener('resize',()=>{if(window.innerWidth>850)closeMenu()});
+})();
 
 // Reliable top-banner slideshow: wait for all images to load before rotating.
 (function(){
