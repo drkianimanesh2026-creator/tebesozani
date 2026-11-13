@@ -178,7 +178,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   .nav{overflow:visible}
   .links{overflow:visible}
   .nav-dropdown{z-index:40}
-  .nav-dropdown:not(.is-closed):hover > .nav-submenu{display:grid;gap:2px;z-index:1000}
+  .nav-dropdown.is-hovered > .nav-submenu{display:grid;gap:2px;z-index:1000}
   .nav-dropdown > summary{cursor:default}
 }
 [id^="course-acu-"]{scroll-margin-top:100px}
@@ -411,24 +411,74 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 <a class="whatsapp" href="https://wa.me/989365742757" target="_blank" rel="noopener">واتساپ مرکز</a>
 <script>
 
-// Accessible responsive navigation menu
+// Accessible responsive navigation menu: close every submenu after selection.
 (function(){
  const toggle=document.getElementById('menuToggle');
  const menu=document.getElementById('siteMenu');
  if(!toggle||!menu)return;
- const closeMenu=()=>{menu.classList.remove('is-open');menu.querySelectorAll('.nav-dropdown[open]').forEach(dropdown=>dropdown.removeAttribute('open'));toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','باز کردن فهرست سایت')};
- menu.querySelectorAll('.nav-dropdown').forEach(dropdown=>{
-  dropdown.addEventListener('pointerleave',()=>dropdown.classList.remove('is-closed'));
+ const dropdowns=[...menu.querySelectorAll('.nav-dropdown')];
+ const desktop=()=>window.matchMedia('(min-width:851px) and (hover:hover) and (pointer:fine)').matches;
+ const closeMenu=()=>{
+  menu.classList.remove('is-open');
+  dropdowns.forEach(dropdown=>{
+   dropdown.removeAttribute('open');
+   dropdown.classList.remove('is-hovered');
+  });
+  toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-label','باز کردن فهرست سایت');
+ };
+ dropdowns.forEach(dropdown=>{
   const summary=dropdown.querySelector(':scope > summary');
-  if(summary&&window.matchMedia('(min-width:851px) and (hover:hover) and (pointer:fine)').matches){
-   summary.addEventListener('click',event=>{event.preventDefault();event.stopPropagation()});
-  }
+  if(!summary)return;
+  dropdown.addEventListener('pointerenter',()=>{
+   if(!desktop())return;
+   dropdowns.forEach(other=>{
+    if(other!==dropdown){
+     other.classList.remove('is-hovered');
+     other.removeAttribute('open');
+    }
+   });
+   dropdown.classList.add('is-hovered');
+  });
+  dropdown.addEventListener('pointerleave',()=>{
+   if(desktop())dropdown.classList.remove('is-hovered');
+  });
+  summary.addEventListener('click',event=>{
+   if(desktop()){
+    event.preventDefault();
+    event.stopPropagation();
+    return;
+   }
+   // On mobile, allow the native details toggle but keep only one submenu open.
+   window.setTimeout(()=>{
+    if(dropdown.open){
+     dropdowns.forEach(other=>{
+      if(other!==dropdown)other.removeAttribute('open');
+     });
+    }
+   },0);
+  });
  });
- toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'بستن فهرست سایت':'باز کردن فهرست سایت')});
- menu.querySelectorAll('.nav-dropdown .nav-submenu a').forEach(link=>link.addEventListener('click',()=>{const parent=link.closest('.nav-dropdown');if(parent){parent.classList.add('is-closed');parent.removeAttribute('open')}closeMenu()}));
- menu.querySelectorAll('a:not(.nav-dropdown .nav-submenu a)').forEach(link=>link.addEventListener('click',closeMenu));
- document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
- window.addEventListener('resize',()=>{if(window.innerWidth>850)closeMenu()});
+ toggle.addEventListener('click',()=>{
+  const open=toggle.getAttribute('aria-expanded')!=='true';
+  if(!open){closeMenu();return;}
+  menu.classList.add('is-open');
+  toggle.setAttribute('aria-expanded','true');
+  toggle.setAttribute('aria-label','بستن فهرست سایت');
+ });
+ menu.querySelectorAll('.nav-dropdown .nav-submenu a').forEach(link=>{
+  link.addEventListener('click',closeMenu);
+ });
+ menu.querySelectorAll('a:not(.nav-dropdown .nav-submenu a)').forEach(link=>{
+  link.addEventListener('click',closeMenu);
+ });
+ document.addEventListener('click',event=>{
+  if(!menu.contains(event.target)&&!toggle.contains(event.target))closeMenu();
+ });
+ document.addEventListener('keydown',event=>{
+  if(event.key==='Escape')closeMenu();
+ });
+ window.addEventListener('resize',closeMenu);
 })();
 
 // Reliable top-banner slideshow: wait for all images to load before rotating.
