@@ -172,6 +172,18 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  .links a:hover{background:#eef7f6}
 }
 @media(max-width:560px){.nav{gap:9px}.brand{gap:8px;font-size:.87rem}.brand small{font-size:.65rem}.logo{width:40px;height:40px}.nav-register{padding:9px 11px;font-size:.78rem}}
+
+/* Desktop: open the eight-course submenu immediately on mouse hover */
+@media (min-width:851px) and (hover:hover) and (pointer:fine){
+  .nav{overflow:visible}
+  .links{overflow:visible}
+  .nav-dropdown{z-index:40}
+  .nav-dropdown:hover > .nav-submenu,
+  .nav-dropdown:focus-within > .nav-submenu{display:grid;gap:2px;z-index:1000}
+  .nav-dropdown > summary{cursor:pointer}
+}
+[id^="course-acu-"]{scroll-margin-top:100px}
+
 </style>
 </head>
 <body>
