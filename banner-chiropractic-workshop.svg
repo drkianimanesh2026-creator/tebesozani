@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#092b3d"/><stop offset=".55" stop-color="#14665f"/><stop offset="1" stop-color="#b5c99b"/></linearGradient>
+ <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#073c32"/><stop offset="1" stop-color="#0b5b45"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b7"/><stop offset="1" stop-color="#d6aa43"/></linearGradient>
+ <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<rect width="1200" height="560" rx="34" fill="url(#bg)"/>
+<circle cx="190" cy="270" r="245" fill="#fff" opacity=".08"/><circle cx="1030" cy="50" r="250" fill="#fff" opacity=".08"/>
+<path d="M0 460Q240 370 460 480T900 465T1200 420V560H0Z" fill="#dce9c2" opacity=".18"/>
+<!-- spine illustration -->
+<g transform="translate(115 60)" opacity=".95">
+ <path d="M190 25Q130 110 174 190T160 360" fill="none" stroke="#e6f1e8" stroke-width="15" stroke-linecap="round" opacity=".25"/>
+ <g fill="#f4dfad" stroke="#fff4d7" stroke-width="3">
+ <path d="M153 30q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M169.10544218094228 57q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M177.6362432497115 84q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M174.58023416622186 111q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M161.37470375389762 138q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M144.23041930775952 165q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M131.2106056896603 192q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M128.4386846843917 219q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M137.21833405319197 246q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M153.42034751210875 273q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M169.42466496796973 300q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/><path d="M177.704205846925 327q-10 -12 4 -17l17 -5 18 6q12 12 1 20l-13 8-19 -3Z"/>
+ </g>
+ <path d="M175 28Q140 115 180 195T160 350" fill="none" stroke="#f1c45e" stroke-width="5" stroke-linecap="round"/>
+ <g fill="#fff" opacity=".75"><circle cx="110" cy="130" r="6"/><circle cx="230" cy="250" r="5"/><circle cx="110" cy="315" r="4"/></g>
+</g>
+<!-- practitioner / treatment table stylized silhouette -->
+<g transform="translate(430 140)">
+ <ellipse cx="170" cy="325" rx="245" ry="24" fill="#001a23" opacity=".25" filter="url(#shadow)"/>
+ <rect x="0" y="205" width="420" height="92" rx="24" fill="#e8f0e7"/>
+ <rect x="24" y="292" width="20" height="95" rx="8" fill="#d7c59a"/><rect x="372" y="292" width="20" height="95" rx="8" fill="#d7c59a"/>
+ <path d="M72 195q65-62 145-40l100 34q26 11 15 34l-17 31H95q-55-10-23-59Z" fill="#1b6c78"/>
+ <circle cx="260" cy="160" r="39" fill="#d9a77e"/>
+ <path d="M226 157q-2-58 45-55q38 5 38 47l-22-13-28 8-16 26Z" fill="#24313a"/>
+ <path d="M80 130q45-70 113-47l55 46-23 72-93 9-57-35Z" fill="#f4f5ef"/>
+ <path d="M100 153q40 26 92 34" fill="none" stroke="#d8e3df" stroke-width="13" stroke-linecap="round"/>
+ <path d="M135 180q70 32 118 2" fill="none" stroke="#d9a77e" stroke-width="18" stroke-linecap="round"/>
+ <path d="M210 186q30-10 50-35" fill="none" stroke="#d9a77e" stroke-width="17" stroke-linecap="round"/>
+</g>
+<rect x="700" y="45" width="435" height="460" rx="32" fill="#fff" opacity=".94"/>
+<rect x="722" y="67" width="390" height="415" rx="26" fill="none" stroke="#d8b45e" stroke-width="3"/>
+<rect x="745" y="88" width="145" height="48" rx="16" fill="#a51e28"/><text x="817" y="120" font-family="Tahoma,sans-serif" font-size="23" font-weight="bold" fill="#fff" text-anchor="middle">کلاس ۲۱</text>
+<text x="1080" y="132" text-anchor="end" font-family="Tahoma,sans-serif" font-size="28" font-weight="bold" fill="#174e3b">کارگاه آموزشی</text>
+<text x="1080" y="202" text-anchor="end" font-family="Tahoma,sans-serif" font-size="51" font-weight="bold" fill="#d49d22">مبانی کایروپراکتیک</text>
+<text x="1080" y="247" text-anchor="end" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="#174e3b">(Chiropractic)</text>
+<path d="M760 270H1075" stroke="#d9bc74" stroke-width="3"/>
+<text x="1080" y="320" text-anchor="end" font-family="Tahoma,sans-serif" font-size="25" font-weight="bold" fill="#174e3b">ارزیابی ستون فقرات</text>
+<text x="1080" y="358" text-anchor="end" font-family="Tahoma,sans-serif" font-size="25" font-weight="bold" fill="#174e3b">و تکنیک‌های درمان دستی</text>
+<rect x="748" y="390" width="344" height="67" rx="19" fill="url(#panel)"/>
+<text x="920" y="435" text-anchor="middle" font-family="Tahoma,sans-serif" font-size="28" font-weight="bold" fill="#fff">شهریه ۱۸ میلیون تومان</text>
+<text x="600" y="530" text-anchor="middle" font-family="Tahoma,sans-serif" font-size="19" font-weight="bold" fill="#fff">آموزش مبانی علمی و مراقبت محافظه‌کارانه سیستم اسکلتی‌عضلانی</text>
+</svg>
