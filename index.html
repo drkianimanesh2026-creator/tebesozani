@@ -831,36 +831,59 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
  }
 })();
  
-// Course search and category filters, including the separate traditional medicine workshop
-const courseCards=[...document.querySelectorAll('#courseGrid .course')];
+// Course search and category filters. Search every individual course card,
+// including the traditional-medicine cards, and normalize Persian/Arabic text.
+const courseCards=[...document.querySelectorAll('#courseGrid .course, #traditional-medicine .herbal-course-card')];
 const courseSearch=document.getElementById('courseSearch');
 const filterButtons=[...document.querySelectorAll('.filter-chip')];
-const traditionalCourse=document.querySelector('#traditional-medicine .container');
+const traditionalSection=document.querySelector('#traditional-medicine');
 let activeCourseFilter='all';
-function categoryForCard(card){const t=card.innerText;if(t.includes('پرورش زالو'))return 'livestock';if(t.includes('پوست و زیبایی'))return 'beauty';if(t.includes('بیماری‌های زنان'))return 'women';if(t.includes('درای نیدل')||t.includes('اندام‌های حرکتی')||t.includes('ستون فقرات'))return 'professional';return 'general'}
+function normalizeCourseText(value){
+ return String(value||'')
+  .toLocaleLowerCase('fa')
+  .replace(/[يى]/g,'ی').replace(/ك/g,'ک')
+  .replace(/[\u064B-\u065F\u0670]/g,'')
+  .replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d))
+  .replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d))
+  .replace(/[\u200c\u200d\s]+/g,'')
+  .trim();
+}
+function categoryForCard(card){
+ if(card.closest('#traditional-medicine'))return 'traditional';
+ const t=card.innerText||'';
+ if(t.includes('پرورش زالو'))return 'livestock';
+ if(t.includes('پوست و زیبایی'))return 'beauty';
+ if(t.includes('بیماری‌های زنان'))return 'women';
+ if(t.includes('درای نیدل')||t.includes('اندام‌های حرکتی')||t.includes('ستون فقرات'))return 'professional';
+ return 'general';
+}
 courseCards.forEach(card=>card.dataset.category=categoryForCard(card));
-if(traditionalCourse)traditionalCourse.dataset.category='traditional';
 function filterCourseCards(){
- const q=(courseSearch.value||'').trim().toLocaleLowerCase('fa');
+ const q=normalizeCourseText(courseSearch?.value);
  let count=0;
  courseCards.forEach(card=>{
-  const matchesText=card.innerText.toLocaleLowerCase('fa').includes(q);
+  const matchesText=normalizeCourseText(card.innerText).includes(q);
   const matchesCategory=activeCourseFilter==='all'||card.dataset.category===activeCourseFilter;
   card.hidden=!(matchesText&&matchesCategory);
   if(!card.hidden)count++;
  });
- if(traditionalCourse){
-  const matchesText=traditionalCourse.innerText.toLocaleLowerCase('fa').includes(q);
-  const matchesCategory=activeCourseFilter==='all'||activeCourseFilter==='traditional';
-  const show=matchesText&&matchesCategory;
-  traditionalCourse.closest('.traditional-section').hidden=!show;
-  if(show)count++;
+ if(traditionalSection){
+  const hasVisibleCourse=courseCards.some(card=>card.closest('#traditional-medicine')&&!card.hidden);
+  traditionalSection.hidden=!hasVisibleCourse;
  }
- document.getElementById('courseCount').textContent=new Intl.NumberFormat('fa-IR').format(count)+' دوره نمایش داده شد';
+ const countNode=document.getElementById('courseCount');
+ if(countNode)countNode.textContent=new Intl.NumberFormat('fa-IR').format(count)+' دوره نمایش داده شد';
 }
-courseSearch.addEventListener('input',filterCourseCards);
-filterButtons.forEach(btn=>btn.addEventListener('click',()=>{activeCourseFilter=btn.dataset.filter;filterButtons.forEach(b=>b.classList.toggle('active',b===btn));filterCourseCards()}));
-
+if(courseSearch){
+ courseSearch.addEventListener('input',filterCourseCards);
+ courseSearch.addEventListener('search',filterCourseCards);
+}
+filterButtons.forEach(btn=>btn.addEventListener('click',()=>{
+ activeCourseFilter=btn.dataset.filter;
+ filterButtons.forEach(b=>b.classList.toggle('active',b===btn));
+ filterCourseCards();
+}));
+filterCourseCards();
 const prices={
 "دوره پایه طب سوزنی":10000000,
 "دوره پرکاربرد ترک اعتیاد":6000000,
