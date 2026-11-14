@@ -1132,7 +1132,7 @@ Object.values(numberedCourses).forEach(title=>{
  }
 });
 const numberByCourse=Object.fromEntries(Object.entries(numberedCourses).map(([n,title])=>[title,n]));
-function syncCourseFromNumber(){const n=normalizeDigits(courseNumber.value);if(numberedCourses[n]){course.value=numberedCourses[n];customCourse.value='';customCourseField.hidden=true;}else if(n){course.value='';customCourseField.hidden=true;}updateAmount();}
+function syncCourseFromNumber(){const n=normalizeDigits(courseNumber.value);customCourse.required=false;if(numberedCourses[n]){course.value=numberedCourses[n];customCourse.value='';customCourseField.hidden=true;}else if(n){course.value='';customCourseField.hidden=true;}updateAmount();}
 function syncNumberFromCourse(){if(numberByCourse[course.value])courseNumber.value=numberByCourse[course.value];else if(course.value!=='__other__')courseNumber.value='';customCourseField.hidden=course.value!=='__other__';customCourse.required=course.value==='__other__';updateAmount();}
 courseNumber.addEventListener('input',syncCourseFromNumber);
 course.addEventListener('change',syncNumberFromCourse);
