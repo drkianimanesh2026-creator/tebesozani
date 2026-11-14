@@ -218,6 +218,21 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 @media(max-width:850px){.transparency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.transparency-grid{grid-template-columns:1fr}.transparency-actions .btn{width:100%}}
 
+
+/* Uniform course-card sizing: equal-height rows on desktop and consistent card rhythm. */
+#courseGrid,#laterCourseGrid{grid-auto-rows:1fr;align-items:stretch}
+#courseGrid>.course,#laterCourseGrid>.course{height:100%;min-width:0}
+#courseGrid>.course h3,#laterCourseGrid>.course h3{min-height:3.25em;display:flex;align-items:flex-start}
+#courseGrid>.course .meta,#laterCourseGrid>.course .meta{min-height:3.2em}
+#courseGrid>.course ul,#laterCourseGrid>.course ul{flex:1 1 auto}
+#courseGrid>.course>.btn,#laterCourseGrid>.course>.btn{margin-top:auto}
+@media(max-width:850px){
+ #courseGrid,#laterCourseGrid{grid-auto-rows:1fr}
+}
+@media(max-width:560px){
+ #courseGrid>.course,#laterCourseGrid>.course{min-height:0}
+}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"مرکز تخصصی طب مکمل","url":"https://marketing4u.ir/","description":"معرفی دوره‌های آموزشی طب سوزنی، طب سنتی و مهارت‌های مکمل و ثبت درخواست شرکت در دوره‌ها.","telephone":["+989309042782","+989372814141","+989017656335","+989365742757"],"areaServed":"IR","availableLanguage":["fa"]}</script>
 </head>
