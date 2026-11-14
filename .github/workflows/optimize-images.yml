@@ -8,6 +8,9 @@ on:
       - '*.jpg'
       - '*.jpeg'
       - '.github/workflows/optimize-images.yml'
+concurrency:
+  group: optimize-images-${{ github.ref }}
+  cancel-in-progress: false
 permissions:
   contents: write
 jobs:
@@ -18,30 +21,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Convert large PNG/JPEG images to WebP
+      - name: Convert images to WebP only when smaller
         run: |
           npm install --no-save sharp
           node <<'NODE'
           const fs = require('fs');
           const sharp = require('sharp');
           (async () => {
-            const html = fs.readFileSync('index.html', 'utf8');
-            const files = [...new Set([...html.matchAll(/(?:src|data-src)=["']\/((?:file_[^"']+\.png)|(?:[^"']+\.jpe?g))["']/gi)].map(m => m[1]))];
+            let html = fs.readFileSync('index.html', 'utf8');
+            const files = [...new Set([...html.matchAll(/(?:src|data-src)=["']\\/((?:file_[^"']+\\.png)|(?:[^"']+\\.jpe?g))["']/gi)].map(m => m[1]))];
             for (const file of files) {
-              const out = file.replace(/\.(?:png|jpe?g)$/i, '.webp');
+              const out = file.replace(/\\.(?:png|jpe?g)$/i, '.webp');
               await sharp(file).rotate().webp({ quality: 80, effort: 5 }).toFile(out);
               const before = fs.statSync(file).size;
               const after = fs.statSync(out).size;
               console.log(file + ': ' + before + ' -> ' + after + ' bytes');
               if (after < before) {
-                const escaped = file.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
-                const re = new RegExp(escaped, 'g');
-                const updated = fs.readFileSync('index.html', 'utf8').replace(re, out);
-                fs.writeFileSync('index.html', updated);
+                html = html.split(file).join(out);
+                fs.writeFileSync('index.html', html);
               } else {
                 fs.unlinkSync(out);
                 console.log('Keeping original; WebP is not smaller: ' + file);
               }
+            }
           })().catch(err => { console.error(err); process.exit(1); });
           NODE
       - name: Commit optimized images
