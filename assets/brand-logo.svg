@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 112" role="img" aria-labelledby="title desc">
+<title id="title">نشان مرکز تخصصی طب مکمل</title><desc id="desc">نشان علمی و آموزشی با نماد برگ، سوزن و سلامت</desc>
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#174d79"/><stop offset="1" stop-color="#102c49"/></linearGradient><linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#25a69a"/><stop offset="1" stop-color="#137d72"/></linearGradient></defs>
+<g transform="translate(5 5)"><circle cx="51" cy="51" r="47" fill="#f4f8fa" stroke="#dce8ed" stroke-width="2"/><circle cx="51" cy="51" r="39" fill="none" stroke="url(#g)" stroke-width="3"/>
+<path d="M25 70 Q49 51 48 24 Q70 43 77 69 Q57 83 25 70Z" fill="url(#leaf)"/><path d="M33 68 Q49 51 62 36" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M51 20 L51 67" stroke="#c79b4b" stroke-width="3.5" stroke-linecap="round"/><circle cx="51" cy="17" r="4" fill="#c79b4b"/>
+<path d="M30 78 Q51 69 72 78" fill="none" stroke="#174d79" stroke-width="3" stroke-linecap="round"/><path d="M38 82h26" stroke="#174d79" stroke-width="2" stroke-linecap="round"/></g>
+<g fill="#102c49" font-family="Tahoma, Arial, sans-serif" text-anchor="end"><text x="510" y="47" font-size="31" font-weight="700" direction="rtl">مرکز تخصصی طب مکمل</text><text x="510" y="77" font-size="15" fill="#168b88" direction="rtl" font-weight="600">آموزش، پژوهش و مهارت‌های سلامت</text></g>
+<path d="M170 91H510" stroke="#c79b4b" stroke-width="2" stroke-linecap="round"/>
+</svg>
