@@ -9,7 +9,7 @@ export async function onRequest({ request, next }) {
   }
 
   const html = await response.text();
-  if (!/<\/body>/i.test(html)) return new Response(html, response);
+  if (!/<\/body>/i.test(html)) return new Response(html, { status: response.status, statusText: response.statusText, headers: response.headers });
 
   const script = `<script>
 (function () {
