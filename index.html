@@ -1152,7 +1152,7 @@ document.getElementById('regForm').addEventListener('submit',e=>{
  const requestedTitle=selectedTitle||'نیازمند شناسایی توسط مرکز';
  const p=prices[selectedTitle],method=payment.value;
  const payable=p?(method==='deposit'?Math.round(p*.3):method==='cash'?Math.round(p*.95):null):null;
- const msg=`درخواست ثبت‌نام / برگزاری کلاس\\nنام: ${name}\\nموبایل: ${mobile}\\nشماره دوره واردشده: ${typedNumber||'ثبت نشده'}\\nنام دوره: ${requestedTitle}\\nدرخواست خارج از فهرست: ${course.value==='__other__'?'بله':'خیر'}\\nشیوه شرکت: ${document.getElementById('mode').value}\\nروش پرداخت: ${payment.options[payment.selectedIndex].text}\\nمبلغ قابل پرداخت فعلی: ${payable===null?'نیازمند هماهنگی با مرکز':fmt(payable)}\\nتخصص: ${document.getElementById('qualification').value}\\nتوضیحات: ${document.getElementById('notes').value}`;
+ const msg=`درخواست ثبت‌نام / برگزاری کلاس\nنام: ${name}\nموبایل: ${mobile}\nشماره دوره واردشده: ${typedNumber||'ثبت نشده'}\nنام دوره: ${requestedTitle}\nدرخواست خارج از فهرست: ${course.value==='__other__'?'بله':'خیر'}\nشیوه شرکت: ${document.getElementById('mode').value}\nروش پرداخت: ${payment.options[payment.selectedIndex].text}\nمبلغ قابل پرداخت فعلی: ${payable===null?'نیازمند هماهنگی با مرکز':fmt(payable)}\nتخصص: ${document.getElementById('qualification').value}\nتوضیحات: ${document.getElementById('notes').value}`;
  window.open('https://wa.me/989365742757?text='+encodeURIComponent(msg),'_blank');
 });
 document.getElementById('requestForm').addEventListener('submit',e=>{
@@ -1190,7 +1190,7 @@ document.getElementById('collaborationForm').addEventListener('submit', e => {
  const phone=document.getElementById('collabPhone').value.trim();
  const area=document.getElementById('collabArea').value;
  const proposal=document.getElementById('collabProposal').value.trim();
- const msg='درخواست همکاری با مرکز تخصصی طب مکمل\\nنام: '+name+'\\nشماره تماس: '+phone+'\\nزمینه همکاری: '+area+'\\nسوابق و پیشنهاد: '+proposal+'\\nرزومه، تصاویر و مدارک مرتبط را جداگانه در همین گفت‌وگو ارسال می‌کنم.';
+ const msg='درخواست همکاری با مرکز تخصصی طب مکمل\nنام: '+name+'\nشماره تماس: '+phone+'\nزمینه همکاری: '+area+'\nسوابق و پیشنهاد: '+proposal+'\nرزومه، تصاویر و مدارک مرتبط را جداگانه در همین گفت‌وگو ارسال می‌کنم.';
  const url='https://wa.me/989365742757?text='+encodeURIComponent(msg);
  const win=window.open(url,'_blank');
  const notice=document.getElementById('collabNotice');
