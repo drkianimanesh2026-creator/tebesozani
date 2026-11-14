@@ -5,6 +5,8 @@ on:
     paths:
       - 'index.html'
       - 'file_*.png'
+      - '*.jpg'
+      - '*.jpeg'
       - '.github/workflows/optimize-images.yml'
 permissions:
   contents: write
@@ -16,7 +18,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Convert large PNG images to WebP
+      - name: Convert large PNG/JPEG images to WebP
         run: |
           npm install --no-save sharp
           node <<'NODE'
