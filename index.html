@@ -205,6 +205,19 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
 }
 [id^="course-acu-"]{scroll-margin-top:100px}
 
+
+/* Learner-first transparency and decision support */
+.transparency-section{padding:58px 0;background:linear-gradient(135deg,#eef5f8 0%,#f7fafb 55%,#edf5f3 100%);border-top:1px solid #dce8ed;border-bottom:1px solid #dce8ed}
+.transparency-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px}
+.transparency-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:19px;box-shadow:0 8px 22px #102c4908}
+.transparency-card .trust-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#e8f4f2;color:#08736e;font-size:1.35rem;margin-bottom:10px}
+.transparency-card h3{font-size:1rem;color:var(--navy);margin:0 0 7px}
+.transparency-card p{font-size:.84rem;color:var(--muted);margin:0}
+.transparency-note{margin-top:18px;padding:15px 18px;background:#fff;border:1px solid #d9e6ec;border-right:4px solid var(--teal);border-radius:14px;color:#40566a;font-size:.86rem}
+.transparency-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+@media(max-width:850px){.transparency-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.transparency-grid{grid-template-columns:1fr}.transparency-actions .btn{width:100%}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"مرکز تخصصی طب مکمل","url":"https://marketing4u.ir/","description":"معرفی دوره‌های آموزشی طب سوزنی، طب سنتی و مهارت‌های مکمل و ثبت درخواست شرکت در دوره‌ها.","telephone":["+989309042782","+989372814141","+989017656335","+989365742757"],"areaServed":"IR","availableLanguage":["fa"]}</script>
 </head>
@@ -257,6 +270,7 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
       </div>
     </details>
     <a href="/articles.html">مقالات آموزشی</a>
+    <a href="#learning-transparency">شفافیت آموزشی</a>
     <a href="#survey">نظرسنجی فراگیران</a><a href="#register">ثبت‌نام</a><a href="#collaboration">دعوت به همکاری</a><a href="#contact">تماس با ما</a>
   </nav>
   <a class="btn nav-register" href="#register">ثبت‌نام دوره‌ها</a>
@@ -706,8 +720,29 @@ footer{background:#0b2036;color:#e3edf4;padding:36px 0 20px}.footgrid{display:gr
   </div>
 </section>
 
-<section class="section" style="padding-top:0"><div class="container"><div class="section-head"><div class="eyebrow">پرسش‌های پرتکرار</div><h2>قبل از ثبت‌نام بدانید</h2></div><div class="faq-list"><details><summary>آیا دوره‌ها حضوری هستند یا آنلاین؟</summary><p>برای دوره‌ها امکان درخواست شرکت حضوری یا آنلاین در فرم ثبت‌نام در نظر گرفته شده است. جزئیات برگزاری و ظرفیت پس از ثبت درخواست با شما هماهنگ می‌شود.</p></details><details><summary>چطور جای خودم را رزرو کنم؟</summary><p>با انتخاب گزینه پیش‌پرداخت، ۳۰٪ شهریه برای رزرو محاسبه می‌شود. پس از پرداخت، رسید یا کد پیگیری را در واتساپ برای مرکز بفرستید تا پرداخت بررسی شود.</p></details><details><summary>آیا پرداخت کامل شامل تخفیف می‌شود؟</summary><p>بله؛ پرداخت کامل و یک‌جای شهریه شامل ۵٪ تخفیف است. پرداخت اقساطی بدون تخفیف بوده و باید شرایط آن را با مرکز هماهنگ کنید.</p></details><details><summary>آیا شرکت در دوره به‌تنهایی مجوز درمان ایجاد می‌کند؟</summary><p>خیر. دوره‌ها جایگزین تحصیلات دانشگاهی، مجوز حرفه‌ای یا صلاحیت قانونی درمان نیستند. فعالیت درمانی فقط باید توسط افراد واجد صلاحیت و در چارچوب ضوابط انجام شود.</p></details></div></div></section>
+<section class="section" style="padding-top:0"><div class="container"><div class="section-head"><div class="eyebrow">پرسش‌های پرتکرار</div><h2>قبل از ثبت‌نام بدانید</h2></div><div class="faq-list"><details><summary>آیا دوره‌ها حضوری هستند یا آنلاین؟</summary><p>برای دوره‌ها امکان درخواست شرکت حضوری یا آنلاین در فرم ثبت‌نام در نظر گرفته شده است. جزئیات برگزاری و ظرفیت پس از ثبت درخواست با شما هماهنگ می‌شود.</p></details><details><summary>چطور جای خودم را رزرو کنم؟</summary><p>با انتخاب گزینه پیش‌پرداخت، ۳۰٪ شهریه برای رزرو محاسبه می‌شود. پس از پرداخت، رسید یا کد پیگیری را در واتساپ برای مرکز بفرستید تا پرداخت بررسی شود.</p></details><details><summary>آیا پرداخت کامل شامل تخفیف می‌شود؟</summary><p>بله؛ پرداخت کامل و یک‌جای شهریه شامل ۵٪ تخفیف است. پرداخت اقساطی بدون تخفیف بوده و باید شرایط آن را با مرکز هماهنگ کنید.</p></details><details><summary>آیا شرکت در دوره به‌تنهایی مجوز درمان ایجاد می‌کند؟</summary><p>خیر. دوره‌ها جایگزین تحصیلات دانشگاهی، مجوز حرفه‌ای یا صلاحیت قانونی درمان نیستند. فعالیت درمانی فقط باید توسط افراد واجد صلاحیت و در چارچوب ضوابط انجام شود.</p></details><details><summary>گواهی پایان دوره از چه مرجعی صادر می‌شود و قابل استعلام است؟</summary><p>مرجع صدور و شرایط گواهی ممکن است با توجه به دوره متفاوت باشد. پیش از پرداخت، نام مرجع صادرکننده، عنوان دقیق گواهی، شرایط دریافت و روش استعلام را از مرکز دریافت و بررسی کنید؛ صرف شرکت در دوره به معنی دریافت مدرک دانشگاهی یا مجوز حرفه‌ای نیست.</p></details><details><summary>آیا پس از دوره استخدام یا معرفی قطعی به کار انجام می‌شود؟</summary><p>خیر؛ هیچ وعده استخدام یا درآمد قطعی صرفاً با شرکت در دوره داده نمی‌شود. کاربرد شغلی مهارت‌ها به تخصص قبلی، قوانین و مجوزهای لازم، تجربه عملی و شرایط بازار کار بستگی دارد.</p></details><details><summary>چطور از سوابق مدرس و شرایط آموزش عملی مطلع شوم؟</summary><p>پیش از ثبت‌نام، نام و سوابق مرتبط مدرس، محل و شیوه تمرین، تجهیزات مورد استفاده، تعداد ساعات عملی و ضوابط ایمنی را از مرکز استعلام کنید.</p></details></div></div></section>
 <section class="info-strip"><div class="container info-grid"><div class="info"><b>حضوری و آنلاین</b><span>انتخاب شیوه شرکت هنگام ثبت درخواست</span></div><div class="info"><b>۳۰٪ پیش‌پرداخت</b><span>امکان رزرو جایگاه با پرداخت اولیه</span></div><div class="info"><b>۵٪ تخفیف پرداخت کامل</b><span>فقط برای تسویه یک‌جای شهریه</span></div></div></section>
+
+<section class="transparency-section" id="learning-transparency" aria-labelledby="transparencyTitle">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">انتخاب آگاهانه و اعتماد متقابل</div>
+      <h2 id="transparencyTitle">پیش از ثبت‌نام، همه جزئیات را شفاف بررسی کنید</h2>
+      <p>هدف ما این است که پیش از پرداخت، بدانید دقیقاً چه آموزشی دریافت می‌کنید، شرایط شرکت چیست و گواهی دوره چه جایگاهی دارد.</p>
+    </div>
+    <div class="transparency-grid">
+      <article class="transparency-card"><div class="trust-icon" aria-hidden="true">📘</div><h3>سرفصل و خروجی آموزشی</h3><p>عنوان، محتوای آموزشی، مدت دوره، پیش‌نیاز و مخاطب هر دوره را در صفحه همان دوره بررسی کنید؛ جزئیات تکمیلی را پیش از پرداخت از مرکز بپرسید.</p></article>
+      <article class="transparency-card"><div class="trust-icon" aria-hidden="true">👩‍🏫</div><h3>شناخت مدرس</h3><p>پیش از ثبت‌نام، نام مدرس، سوابق مرتبط، تجربه آموزشی و نقش او در برگزاری دوره را از مرکز استعلام کنید.</p></article>
+      <article class="transparency-card"><div class="trust-icon" aria-hidden="true">📜</div><h3>شفافیت گواهی</h3><p>مرجع صادرکننده، عنوان دقیق گواهی، شرایط دریافت و امکان استعلام را پیش از پرداخت به‌صورت روشن جویا شوید. نوع گواهی در همه دوره‌ها یکسان فرض نمی‌شود.</p></article>
+      <article class="transparency-card"><div class="trust-icon" aria-hidden="true">🧭</div><h3>مسیر مهارت و بازار کار</h3><p>برای انتخاب مسیر مناسب، درباره مهارت‌های قابل یادگیری و کاربردهای شغلی آن گفت‌وگو کنید. شرکت در دوره به‌تنهایی تضمین استخدام یا مجوز فعالیت حرفه‌ای نیست.</p></article>
+    </div>
+    <div class="transparency-note"><strong>چک‌لیست قبل از واریز وجه:</strong> سرفصل و ساعات آموزش، تاریخ و شیوه برگزاری، پیش‌نیازها، شهریه نهایی و شرایط انصراف، مشخصات مدرس، مرجع و شرایط گواهی و هزینه‌های احتمالی جانبی را روشن کنید. برای دوره‌های عملی، درباره محل تمرین، تجهیزات، نظارت و ضوابط ایمنی نیز سؤال کنید.</div>
+    <div class="transparency-actions">
+      <a class="btn" href="#register">مشاوره و انتخاب دوره</a>
+      <a class="btn outline" href="https://wa.me/989365742757?text=%D8%B3%D9%84%D8%A7%D9%85%D8%8C%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%A7%D9%86%D8%AA%D8%AE%D8%A7%D8%A8%20%D8%AF%D9%88%D8%B1%D9%87%20%D9%88%20%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%20%D8%A7%D8%B2%20%D9%85%D8%AF%D8%B1%D8%B3%D8%8C%20%DA%AF%D9%88%D8%A7%D9%87%DB%8C%20%D9%88%20%D8%B4%D8%B1%D8%A7%DB%8C%D8%B7%20%D8%A8%D8%B1%DA%AF%D8%B2%D8%A7%D8%B1%DB%8C%20%D8%B1%D8%A7%D9%87%D9%86%D9%85%D8%A7%DB%8C%DB%8C%20%D9%85%DB%8C%E2%80%8C%D9%81%D8%B1%D9%85%D8%A7%DB%8C%DB%8C%D8%AF." target="_blank" rel="noopener">پرسش در واتساپ</a>
+    </div>
+  </div>
+</section>
 
 <section class="section"><div class="container"><div class="payment"><div><h2>رزرو دوره با پیش‌پرداخت</h2><p>برای رزرو، ۳۰٪ شهریه را پرداخت کنید. پرداخت کامل و یک‌جا شامل ۵٪ تخفیف است. پرداخت اقساطی بدون تخفیف بوده و شرایط آن با مرکز هماهنگ می‌شود.</p></div><div class="pay-rules"><div class="rule">پرداخت کامل یک‌جا: <b>۵٪ تخفیف</b></div><div class="rule">رزرو جایگاه: <b>۳۰٪ شهریه</b></div><div class="rule">پرداخت اقساطی: <b>بدون تخفیف</b></div><a class="btn gold" href="https://ppng.ir/jahanesalamat" target="_blank" rel="noopener">پرداخت شهریه از طریق پی‌پینگ</a><div class="hint" style="color:#d5e5ef">پس از انتخاب دوره، مبلغ قابل پرداخت را در فرم ثبت‌نام مشاهده کنید. در صفحه پی‌پینگ همان مبلغ را وارد کنید و پس از پرداخت، رسید یا کد پیگیری را برای مرکز در واتساپ ارسال کنید.</div></div></div></div></section>
 
