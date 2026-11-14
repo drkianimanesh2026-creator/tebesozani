@@ -1,10 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 112" role="img" aria-labelledby="title desc">
-<title id="title">نشان مرکز تخصصی طب مکمل</title><desc id="desc">نشان علمی و آموزشی با نماد برگ، سوزن و سلامت</desc>
-<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#174d79"/><stop offset="1" stop-color="#102c49"/></linearGradient><linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#25a69a"/><stop offset="1" stop-color="#137d72"/></linearGradient></defs>
-<g transform="translate(5 5)"><circle cx="51" cy="51" r="47" fill="#f4f8fa" stroke="#dce8ed" stroke-width="2"/><circle cx="51" cy="51" r="39" fill="none" stroke="url(#g)" stroke-width="3"/>
-<path d="M25 70 Q49 51 48 24 Q70 43 77 69 Q57 83 25 70Z" fill="url(#leaf)"/><path d="M33 68 Q49 51 62 36" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M51 20 L51 67" stroke="#c79b4b" stroke-width="3.5" stroke-linecap="round"/><circle cx="51" cy="17" r="4" fill="#c79b4b"/>
-<path d="M30 78 Q51 69 72 78" fill="none" stroke="#174d79" stroke-width="3" stroke-linecap="round"/><path d="M38 82h26" stroke="#174d79" stroke-width="2" stroke-linecap="round"/></g>
-<g fill="#102c49" font-family="Tahoma, Arial, sans-serif" text-anchor="end"><text x="510" y="47" font-size="31" font-weight="700" direction="rtl">مرکز تخصصی طب مکمل</text><text x="510" y="77" font-size="15" fill="#168b88" direction="rtl" font-weight="600">آموزش، پژوهش و مهارت‌های سلامت</text></g>
-<path d="M170 91H510" stroke="#c79b4b" stroke-width="2" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 124" role="img" aria-labelledby="title desc">
+<title id="title">لوگوی مرکز تخصصی طب مکمل</title><desc id="desc">نشان آموزش و سلامت با کتاب باز، برگ، نماد پزشکی و رنگ‌های پرچم ایران</desc>
+<defs>
+ <linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#205b86"/><stop offset="1" stop-color="#102c49"/></linearGradient>
+ <linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#36b5a5"/><stop offset="1" stop-color="#11786f"/></linearGradient>
+ <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0d59a"/><stop offset="1" stop-color="#bd8d3f"/></linearGradient>
+</defs>
+<!-- emblem -->
+<circle cx="64" cy="61" r="55" fill="#f5f9fb" stroke="#dce8ed" stroke-width="2"/>
+<circle cx="64" cy="61" r="47" fill="none" stroke="#174d79" stroke-opacity=".18" stroke-width="1.5"/>
+<!-- leaves -->
+<path d="M34 66C29 42 44 25 64 22c-1 22-10 38-30 44Z" fill="url(#teal)"/>
+<path d="M94 66C99 42 84 25 64 22c1 22 10 38 30 44Z" fill="#239b7c"/>
+<path d="M37 62 61 30M91 62 67 30" stroke="#fff" stroke-opacity=".8" stroke-width="2" fill="none"/>
+<!-- medical needle and staff -->
+<path d="M64 25V77" stroke="#c79b4b" stroke-width="3.4" stroke-linecap="round"/><circle cx="64" cy="21" r="4" fill="url(#gold)"/>
+<path d="M57 48c-10-8-17 3-8 10 7 5 15 1 15-7 0-8 8-12 14-6 6 6 0 14-7 14" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+<!-- open book -->
+<path d="M18 78Q40 69 63 83Q86 69 110 78V99Q85 91 63 105Q41 91 18 99Z" fill="url(#navy)"/>
+<path d="M63 83V104M24 83Q43 78 57 87M102 83Q83 78 69 87" fill="none" stroke="#fff" stroke-opacity=".9" stroke-width="2"/>
+<path d="M18 105Q41 97 63 110Q86 97 110 105" fill="none" stroke="#c79b4b" stroke-width="2.5" stroke-linecap="round"/>
+<!-- Iran flag ribbon -->
+<path d="M24 116H104" stroke="#239b63" stroke-width="5" stroke-linecap="round"/>
+<path d="M24 121H104" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+<path d="M24 126H104" stroke="#d83b42" stroke-width="5" stroke-linecap="round"/>
+<!-- wordmark -->
+<g font-family="Tahoma,Arial,sans-serif" text-anchor="end">
+ <text x="548" y="53" font-size="34" font-weight="700" fill="#102c49" direction="rtl">مرکز تخصصی طب مکمل</text>
+ <text x="548" y="82" font-size="16" font-weight="600" fill="#168b88" direction="rtl">آموزش، پژوهش و مهارت‌های سلامت</text>
+</g>
+<path d="M188 96H548" stroke="#c79b4b" stroke-width="2" stroke-linecap="round"/>
 </svg>
