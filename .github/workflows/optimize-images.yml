@@ -33,11 +33,15 @@ jobs:
               const before = fs.statSync(file).size;
               const after = fs.statSync(out).size;
               console.log(file + ': ' + before + ' -> ' + after + ' bytes');
-              const escaped = file.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-              const re = new RegExp(escaped, 'g');
-              const updated = fs.readFileSync('index.html', 'utf8').replace(re, out);
-              fs.writeFileSync('index.html', updated);
-            }
+              if (after < before) {
+                const escaped = file.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&');
+                const re = new RegExp(escaped, 'g');
+                const updated = fs.readFileSync('index.html', 'utf8').replace(re, out);
+                fs.writeFileSync('index.html', updated);
+              } else {
+                fs.unlinkSync(out);
+                console.log('Keeping original; WebP is not smaller: ' + file);
+              }
           })().catch(err => { console.error(err); process.exit(1); });
           NODE
       - name: Commit optimized images
